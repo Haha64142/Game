@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4nqbeam4mpoa"]
+
+[ext_resource type="Script" uid="uid://dusad4gbjyw2e" path="res://mouse_texture.gd" id="2_i5mj8"]
+[ext_resource type="Texture2D" uid="uid://chrcrkjl40gqk" path="res://crosshair.png" id="3_e7rxi"]
+
+[node name="MouseTexture" type="Node2D"]
+script = ExtResource("2_i5mj8")
+
+[node name="Crosshair" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_e7rxi")
+expand_mode = 3
+stretch_mode = 4

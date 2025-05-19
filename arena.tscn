@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://oqrta31ulqm3"]
+
+[ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
+[ext_resource type="Script" uid="uid://bsc3juwas3y0o" path="res://ground.gd" id="1_ly7xt"]
+[ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6054l"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_u0exr"]
+sky_material = SubResource("ProceduralSkyMaterial_6054l")
+
+[sub_resource type="Environment" id="Environment_33o45"]
+background_mode = 2
+sky = SubResource("Sky_u0exr")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27ga2"]
+size = Vector3(40, 0.1, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h0wof"]
+size = Vector3(40, 0.1, 40)
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_q4odl"]
+
+[node name="Arena" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_33o45")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+disable_mode = 2
+script = ExtResource("1_ly7xt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_27ga2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_h0wof")
+skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("1_8pfjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 6, 8)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_q4odl")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
