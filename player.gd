@@ -21,9 +21,12 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED, ACCELERATION_SPEED * delta)
 	velocity.z = move_toward(velocity.z, direction.y * WALK_SPEED, ACCELERATION_SPEED * delta)
 	
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_HEIGHT
 	
 	velocity.y = maxf(-TERMINAL_VELOCITY, velocity.y - GRAVITY * delta)
 	
 	move_and_slide()
+	
+	if position.y <= -20:
+		position = Global.respawn_pos
