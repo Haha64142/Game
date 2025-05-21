@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
-[ext_resource type="MeshLibrary" uid="uid://bfrg2tocnh803" path="res://tile_mesh (1).tres" id="3_h0wof"]
+[ext_resource type="MeshLibrary" uid="uid://bsm52sjylb6hd" path="res://box_mesh.tres" id="3_h0wof"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6054l"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,7 +26,7 @@ environment = SubResource("Environment_33o45")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 8)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 7)
 projection = 1
 size = 21.705
 script = ExtResource("2_h0wof")
