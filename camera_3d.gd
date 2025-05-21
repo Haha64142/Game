@@ -10,6 +10,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !Global.mouse_visible:
 		vector_diff = Global.mouse_pos - center
-		position = Vector3(vector_diff.x / 137.14, 6, vector_diff.y / 33.57 + 6)
+		position = Vector3(vector_diff.x / 77, 6, vector_diff.y / 55 + 6)
 	else:
 		position = Vector3(0, 6, 6)

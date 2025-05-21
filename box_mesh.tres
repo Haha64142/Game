@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=6 format=3 uid="uid://bsm52sjylb6hd"]
+[gd_resource type="MeshLibrary" load_steps=6 format=3 uid="uid://5qj51gl0fyj4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlpd7"]
 albedo_color = Color(0.2241, 0.2241, 0.27, 1)
