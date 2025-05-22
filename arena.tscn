@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
-[ext_resource type="MeshLibrary" uid="uid://bsm52sjylb6hd" path="res://box_mesh.tres" id="3_h0wof"]
+[ext_resource type="MeshLibrary" uid="uid://5qj51gl0fyj4" path="res://box_mesh.tres" id="3_h0wof"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6054l"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,7 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 7)
 projection = 1
-size = 21.705
+size = 20.0
+near = 0.001
 script = ExtResource("2_h0wof")
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -41,8 +42,30 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Center" type="Line2D" parent="."]
+visible = false
 position = Vector2(480, 256)
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 closed = true
 width = 1.0
+
+[node name="Right" type="Line2D" parent="."]
+visible = false
+position = Vector2(640, 256)
+points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
+closed = true
+width = 1.0
+
+[node name="Bottom" type="Line2D" parent="."]
+visible = false
+position = Vector2(480, 341)
+points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
+closed = true
+width = 1.0
+
+[node name="Ring" type="Line2D" parent="."]
+visible = false
+position = Vector2(480, 256)
+points = PackedVector2Array(-160, -85, -160, 85, 160, 85, 160, -85)
+closed = true
+width = 5.0
