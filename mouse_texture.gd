@@ -21,6 +21,8 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Global.mouse_visible:
 			position = get_viewport().get_mouse_position()
+			position.x = clamp(position.x, 0, SCREEN_WIDTH)
+			position.y = clamp(position.y, 0, SCREEN_HEIGHT)
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			show()
 		else:
