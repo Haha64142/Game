@@ -1,26 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://chd8hg2hn5spl"]
+[gd_scene load_steps=6 format=3 uid="uid://chd8hg2hn5spl"]
 
 [ext_resource type="Script" uid="uid://beia2lpkc7h56" path="res://player.gd" id="1_p6a14"]
-[ext_resource type="Texture2D" uid="uid://bwxt6quv028a1" path="res://logo.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c2lp2f7dnvohr" path="res://Art/Player/idle/idle-2.png" id="2_onrkg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
-size = Vector3(1, 2, 1)
+size = Vector3(3, 3, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrkg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
+transparency = 1
 albedo_texture = ExtResource("2_onrkg")
 
 [sub_resource type="QuadMesh" id="QuadMesh_i3pqv"]
-material = SubResource("StandardMaterial3D_onrkg")
-size = Vector2(1, 2)
-center_offset = Vector3(0, 0, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
-albedo_texture = ExtResource("2_onrkg")
-
-[sub_resource type="QuadMesh" id="QuadMesh_hqtel"]
 material = SubResource("StandardMaterial3D_i3pqv")
-center_offset = Vector3(0, 1, 0)
-orientation = 1
+size = Vector2(3, 3)
 
 [node name="Player" type="CharacterBody3D"]
 disable_mode = 2
@@ -31,6 +23,3 @@ shape = SubResource("BoxShape3D_hesjb")
 
 [node name="FrontMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_i3pqv")
-
-[node name="TopMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("QuadMesh_hqtel")
