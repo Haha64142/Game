@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://chd8hg2hn5spl"]
+[gd_scene load_steps=7 format=3 uid="uid://chd8hg2hn5spl"]
 
 [ext_resource type="Script" uid="uid://beia2lpkc7h56" path="res://player.gd" id="1_p6a14"]
-[ext_resource type="Texture2D" uid="uid://c2lp2f7dnvohr" path="res://Art/Player/idle/idle-2.png" id="2_onrkg"]
+[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://texture_2d_array.gdshader" id="2_i3pqv"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://c0ew51vo2tavn" path="res://Art/Player/dwarf x4.png" id="3_i3pqv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
 size = Vector3(3, 3, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
-transparency = 1
-albedo_texture = ExtResource("2_onrkg")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
+render_priority = 0
+shader = ExtResource("2_i3pqv")
+shader_parameter/texture_albedo = ExtResource("3_i3pqv")
+shader_parameter/index = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_i3pqv"]
-material = SubResource("StandardMaterial3D_i3pqv")
+material = SubResource("ShaderMaterial_hqtel")
 size = Vector2(3, 3)
 
 [node name="Player" type="CharacterBody3D"]
