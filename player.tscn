@@ -1,22 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://chd8hg2hn5spl"]
+[gd_scene load_steps=36 format=3 uid="uid://chd8hg2hn5spl"]
 
 [ext_resource type="Script" uid="uid://beia2lpkc7h56" path="res://player.gd" id="1_p6a14"]
-[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://texture_2d_array.gdshader" id="2_i3pqv"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://c0ew51vo2tavn" path="res://Art/Player/dwarf x4.png" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://oegv1u03eow5" path="res://Art/Player/dwarf sprite sheet.png" id="4_hqtel"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
 size = Vector3(1.25, 1.6, 0.5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
-render_priority = 0
-shader = ExtResource("2_i3pqv")
-shader_parameter/texture_albedo = ExtResource("3_i3pqv")
-shader_parameter/index = 2
-
-[sub_resource type="QuadMesh" id="QuadMesh_i3pqv"]
-material = SubResource("ShaderMaterial_hqtel")
-size = Vector2(3, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
 atlas = ExtResource("4_hqtel")
@@ -295,10 +283,6 @@ script = ExtResource("1_p6a14")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 shape = SubResource("BoxShape3D_hesjb")
-
-[node name="FrontMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("QuadMesh_i3pqv")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
