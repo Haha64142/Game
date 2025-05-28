@@ -1,13 +1,15 @@
-[gd_scene load_steps=78 format=3 uid="uid://1huqikm7fvyw"]
+[gd_scene load_steps=94 format=3 uid="uid://1huqikm7fvyw"]
 
-[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://texture_2d_array.gdshader" id="1_k6t24"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://c678o564qaqh4" path="res://Art/Environment/Tiles.png" id="2_d6bvg"]
+[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://unshaded_texture_2d_array.gdshader" id="1_k6t24"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://bxpwnm3xbbvo7" path="res://Art/Environment/Tiles.png" id="2_d6bvg"]
+[ext_resource type="Shader" uid="uid://dyjvdbh12nvyf" path="res://texture_2d_array.gdshader" id="3_d6bvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xlp04"]
 render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 0
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_341ea"]
 material = SubResource("ShaderMaterial_xlp04")
@@ -21,6 +23,7 @@ render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 100
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7osof"]
 material = SubResource("ShaderMaterial_srh3t")
@@ -34,6 +37,7 @@ render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 102
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y1754"]
 material = SubResource("ShaderMaterial_rnsht")
@@ -47,6 +51,7 @@ render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 76
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6e3qa"]
 material = SubResource("ShaderMaterial_endm6")
@@ -60,6 +65,7 @@ render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 75
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8mo23"]
 material = SubResource("ShaderMaterial_w18sb")
@@ -73,6 +79,7 @@ render_priority = 0
 shader = ExtResource("1_k6t24")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 77
+shader_parameter/test = Vector2i(16, 16)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gjn3x"]
 material = SubResource("ShaderMaterial_hkurt")
@@ -81,9 +88,83 @@ orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_341ea"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxt1b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ivye"]
 render_priority = 0
 shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 129
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vra4g"]
+material = SubResource("ShaderMaterial_7ivye")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5a20"]
+render_priority = 0
+shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 128
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_38uyi"]
+material = SubResource("ShaderMaterial_g5a20")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jygf0"]
+render_priority = 0
+shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 103
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ryv5w"]
+material = SubResource("ShaderMaterial_jygf0")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjn3x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glg8d"]
+render_priority = 0
+shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 104
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4mq60"]
+material = SubResource("ShaderMaterial_glg8d")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u02i4"]
+render_priority = 0
+shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 154
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rkejw"]
+material = SubResource("ShaderMaterial_u02i4")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tkme"]
+render_priority = 0
+shader = ExtResource("1_k6t24")
+shader_parameter/texture_albedo = ExtResource("2_d6bvg")
+shader_parameter/index = 153
+shader_parameter/test = Vector2i(16, 16)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_658bn"]
+material = SubResource("ShaderMaterial_8tkme")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxt1b"]
+render_priority = 0
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 26
 
@@ -96,7 +177,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6t24"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 25
 
@@ -109,7 +190,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vra4g"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 27
 
@@ -122,7 +203,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6bvg"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 125
 
@@ -135,7 +216,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6e3qa"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 127
 
@@ -148,7 +229,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_341ea"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 51
 
@@ -161,7 +242,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7osof"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 50
 
@@ -174,7 +255,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1754"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 52
 
@@ -187,7 +268,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8mo23"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 150
 
@@ -200,7 +281,7 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjn3x"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 152
 
@@ -209,11 +290,9 @@ material = SubResource("ShaderMaterial_gjn3x")
 size = Vector2(1, 1)
 orientation = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gjn3x"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wxgha"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 30
 
@@ -225,7 +304,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38uyi"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 5
 
@@ -237,7 +316,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryv5w"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 4
 
@@ -249,7 +328,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4mq60"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 6
 
@@ -261,7 +340,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rkejw"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 29
 
@@ -273,7 +352,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_658bn"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 31
 
@@ -285,7 +364,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0bd87"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 55
 
@@ -297,7 +376,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceiah"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 54
 
@@ -309,7 +388,7 @@ size = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pv6v3"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 56
 
@@ -318,6 +397,17 @@ material = SubResource("ShaderMaterial_pv6v3")
 size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u02i4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6t24"]
+render_priority = -1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.0392157, 0.0352941, 0.0313726, 0.784314)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6bvg"]
+material = SubResource("StandardMaterial3D_k6t24")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkejw"]
 
 [node name="Tiles" type="Node3D"]
 
@@ -388,6 +478,72 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopRight/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 shape = SubResource("BoxShape3D_341ea")
+
+[node name="WallEdgeLeft" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_vra4g")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeLeft"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeLeft/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_341ea")
+
+[node name="WallEdgeRight" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_38uyi")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeRight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeRight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_341ea")
+
+[node name="WallEdgeBottomRightConnecter" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_ryv5w")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomRightConnecter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomRightConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_gjn3x")
+
+[node name="WallEdgeBottomLeftConnecter" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_4mq60")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomLeftConnecter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomLeftConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_gjn3x")
+
+[node name="WallEdgeTopLeftConnecter" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_rkejw")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopLeftConnecter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopLeftConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_gjn3x")
+
+[node name="WallEdgeTopRightConnecter" type="MeshInstance3D" parent="Walls"]
+visible = false
+mesh = SubResource("PlaneMesh_658bn")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopRightConnecter"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopRightConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+shape = SubResource("BoxShape3D_gjn3x")
 
 [node name="Wall" type="MeshInstance3D" parent="Walls"]
 visible = false
@@ -599,3 +755,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/FloorBottomRight/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("BoxShape3D_u02i4")
+
+[node name="Misc" type="Node3D" parent="."]
+
+[node name="PlaceHolder" type="MeshInstance3D" parent="Misc"]
+visible = false
+layers = 3
+mesh = SubResource("BoxMesh_d6bvg")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Misc/PlaceHolder"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/PlaceHolder/StaticBody3D"]
+shape = SubResource("BoxShape3D_rkejw")
