@@ -2,22 +2,21 @@
 
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
-uid="uid://c678o564qaqh4"
-path.s3tc="res://.godot/imported/Tiles.png-84884fdb64391864c8167c2b102eaee8.s3tc.ctexarray"
+uid="uid://bxpwnm3xbbvo7"
+path="res://.godot/imported/Tiles.png-84884fdb64391864c8167c2b102eaee8.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Art/Environment/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-84884fdb64391864c8167c2b102eaee8.s3tc.ctexarray"]
+dest_files=["res://.godot/imported/Tiles.png-84884fdb64391864c8167c2b102eaee8.ctexarray"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=3
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/channel_pack=0
