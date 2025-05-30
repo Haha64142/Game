@@ -1,15 +1,15 @@
 [gd_scene load_steps=94 format=3 uid="uid://1huqikm7fvyw"]
 
-[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://unshaded_texture_2d_array.gdshader" id="1_k6t24"]
+[ext_resource type="Shader" uid="uid://dw0ocbhm6jvna" path="res://unshaded_texture_2d_array.gdshader" id="1_d6bvg"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://bxpwnm3xbbvo7" path="res://Art/Environment/Tiles.png" id="2_d6bvg"]
 [ext_resource type="Shader" uid="uid://dyjvdbh12nvyf" path="res://texture_2d_array.gdshader" id="3_d6bvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xlp04"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 0
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_341ea"]
 material = SubResource("ShaderMaterial_xlp04")
@@ -20,10 +20,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srh3t"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 100
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7osof"]
 material = SubResource("ShaderMaterial_srh3t")
@@ -34,10 +34,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rnsht"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 102
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y1754"]
 material = SubResource("ShaderMaterial_rnsht")
@@ -48,10 +48,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_endm6"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 76
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6e3qa"]
 material = SubResource("ShaderMaterial_endm6")
@@ -62,10 +62,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w18sb"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 75
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8mo23"]
 material = SubResource("ShaderMaterial_w18sb")
@@ -76,10 +76,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hkurt"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 77
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gjn3x"]
 material = SubResource("ShaderMaterial_hkurt")
@@ -90,10 +90,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ivye"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 129
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vra4g"]
 material = SubResource("ShaderMaterial_7ivye")
@@ -102,10 +102,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g5a20"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 128
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_38uyi"]
 material = SubResource("ShaderMaterial_g5a20")
@@ -114,10 +114,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jygf0"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 103
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ryv5w"]
 material = SubResource("ShaderMaterial_jygf0")
@@ -128,10 +128,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glg8d"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 104
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4mq60"]
 material = SubResource("ShaderMaterial_glg8d")
@@ -140,10 +140,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u02i4"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 154
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rkejw"]
 material = SubResource("ShaderMaterial_u02i4")
@@ -152,10 +152,10 @@ orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8tkme"]
 render_priority = 0
-shader = ExtResource("1_k6t24")
+shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 153
-shader_parameter/test = Vector2i(16, 16)
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_658bn"]
 material = SubResource("ShaderMaterial_8tkme")
@@ -167,6 +167,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 26
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wxgha"]
 material = SubResource("ShaderMaterial_sxt1b")
@@ -180,6 +181,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 25
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d6bvg"]
 material = SubResource("ShaderMaterial_k6t24")
@@ -193,6 +195,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 27
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xlp04"]
 material = SubResource("ShaderMaterial_vra4g")
@@ -206,6 +209,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 125
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7ivye"]
 material = SubResource("ShaderMaterial_d6bvg")
@@ -219,6 +223,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 127
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w18sb"]
 material = SubResource("ShaderMaterial_6e3qa")
@@ -232,6 +237,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 51
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_srh3t"]
 material = SubResource("ShaderMaterial_341ea")
@@ -245,6 +251,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 50
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rnsht"]
 material = SubResource("ShaderMaterial_7osof")
@@ -258,6 +265,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 52
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_endm6"]
 material = SubResource("ShaderMaterial_y1754")
@@ -271,6 +279,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 150
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hkurt"]
 material = SubResource("ShaderMaterial_8mo23")
@@ -284,6 +293,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 152
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sxt1b"]
 material = SubResource("ShaderMaterial_gjn3x")
@@ -295,6 +305,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 30
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g5a20"]
 material = SubResource("ShaderMaterial_wxgha")
@@ -307,6 +318,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 5
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jygf0"]
 material = SubResource("ShaderMaterial_38uyi")
@@ -319,6 +331,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 4
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_glg8d"]
 material = SubResource("ShaderMaterial_ryv5w")
@@ -331,6 +344,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 6
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u02i4"]
 material = SubResource("ShaderMaterial_4mq60")
@@ -343,6 +357,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 29
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tkme"]
 material = SubResource("ShaderMaterial_rkejw")
@@ -355,6 +370,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 31
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d17i1"]
 material = SubResource("ShaderMaterial_658bn")
@@ -367,6 +383,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 55
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_khnvu"]
 material = SubResource("ShaderMaterial_0bd87")
@@ -379,6 +396,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 54
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b7lvl"]
 material = SubResource("ShaderMaterial_ceiah")
@@ -391,6 +409,7 @@ render_priority = 0
 shader = ExtResource("3_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 56
+shader_parameter/size = 16.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6r5al"]
 material = SubResource("ShaderMaterial_pv6v3")
@@ -400,9 +419,8 @@ size = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6t24"]
 render_priority = -1
-transparency = 1
 shading_mode = 0
-albedo_color = Color(0.0392157, 0.0352941, 0.0313726, 0.784314)
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d6bvg"]
 material = SubResource("StandardMaterial3D_k6t24")
