@@ -2,6 +2,7 @@ extends Node2D
 
 var SCREEN_WIDTH : int = ProjectSettings.get_setting("display/window/size/viewport_width")
 var SCREEN_HEIGHT : int = ProjectSettings.get_setting("display/window/size/viewport_height")
+var scale_factor : Vector2 = Vector2(1.0, 1.0)
 
 var mouse_sensitivity := 0.9
 @onready var crosshair := $Crosshair
@@ -25,7 +26,8 @@ func _process(_delta: float) -> void:
 			show()
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			Input.warp_mouse(position)
+			scale_factor = get_viewport_transform().get_scale()
+			Input.warp_mouse(Vector2(position.x * scale_factor.x, position.y * scale_factor.y))
 			hide()
 		Global.mouse_visible = !Global.mouse_visible
 	
