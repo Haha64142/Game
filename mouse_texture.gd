@@ -3,6 +3,14 @@ extends Node2D
 var SCREEN_WIDTH : int = ProjectSettings.get_setting("display/window/size/viewport_width")
 var SCREEN_HEIGHT : int = ProjectSettings.get_setting("display/window/size/viewport_height")
 var scale_factor : Vector2 = Vector2(1.0, 1.0)
+var offset : Vector2 = Vector2(0, 0)
+
+var window_mode : int = 0
+var window_modes = [
+	DisplayServer.WINDOW_MODE_WINDOWED,
+	DisplayServer.WINDOW_MODE_MAXIMIZED
+#	DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN 
+]
 
 var mouse_sensitivity := 0.9
 @onready var crosshair := $Crosshair
@@ -13,11 +21,12 @@ func _ready() -> void:
 	position = get_viewport().get_mouse_position()
 	show()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	scale_factor = get_viewport_transform().get_scale()
+	offset = (Vector2(DisplayServer.window_get_size()) - get_viewport_rect().size * scale_factor) / 2
 	Global.mouse_pos = position
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("open_menu"):
 		if Global.mouse_visible:
 			position = get_viewport().get_mouse_position()
 			position.x = clamp(position.x, 0, SCREEN_WIDTH)
@@ -26,13 +35,19 @@ func _process(_delta: float) -> void:
 			show()
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			scale_factor = get_viewport_transform().get_scale()
-			Input.warp_mouse(Vector2(position.x * scale_factor.x, position.y * scale_factor.y))
+			Input.warp_mouse(position * scale_factor + offset)
 			hide()
 		Global.mouse_visible = !Global.mouse_visible
 	
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
+	
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		if (window_modes.has(DisplayServer.window_get_mode())):
+			window_mode = window_modes.find(DisplayServer.window_get_mode())
+		window_mode += 1
+		window_mode %= window_modes.size()
+		DisplayServer.window_set_mode(window_modes[window_mode])
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -40,6 +55,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Global.mouse_visible:
 			position = get_viewport().get_mouse_position()
 		else:
-			position += event.screen_relative * mouse_sensitivity
+			position += event.screen_relative * mouse_sensitivity / scale_factor
 			position.x = clamp(position.x, 0, SCREEN_WIDTH)
 			position.y = clamp(position.y, 0, SCREEN_HEIGHT)

@@ -49,24 +49,28 @@ script = ExtResource("2_h0wof")
 [node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
 
 [node name="Center" type="Line2D" parent="."]
+visible = false
 position = Vector2(480, 256)
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 closed = true
 width = 1.0
 
 [node name="Right" type="Line2D" parent="."]
+visible = false
 position = Vector2(640, 256)
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 closed = true
 width = 1.0
 
 [node name="Bottom" type="Line2D" parent="."]
+visible = false
 position = Vector2(480, 341)
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 closed = true
 width = 1.0
 
 [node name="Ring" type="Line2D" parent="."]
+visible = false
 position = Vector2(480, 256)
 points = PackedVector2Array(-160, -85, -160, 85, 160, 85, 160, -85)
 closed = true
