@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://oegv1u03eow5" path="res://Art/Player/dwarf sprite sheet.png" id="4_hqtel"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
-size = Vector3(1.25, 2, 1)
+size = Vector3(1.25, 2, 0.8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
 atlas = ExtResource("4_hqtel")
@@ -281,11 +281,11 @@ disable_mode = 2
 script = ExtResource("1_p6a14")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -0.75, 0)
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 0, -0.375, -0.131)
 shape = SubResource("BoxShape3D_hesjb")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 0, 0, 0)
+transform = Transform3D(1.125, 0, 0, 0, 1.125, 0, 0, 0, 1.125, 0, 0, 0)
 sorting_offset = 10.0
 shaded = true
 double_sided = false
