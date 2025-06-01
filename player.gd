@@ -27,3 +27,4 @@ func _physics_process(delta: float) -> void:
 	
 	if position.y <= -20:
 		position = Global.respawn_pos
+		velocity = Vector3.ZERO
