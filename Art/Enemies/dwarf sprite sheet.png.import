@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oegv1u03eow5"
-path.s3tc="res://.godot/imported/dwarf sprite sheet.png-d988965d4f185b5c5ca7aec5a48e4693.s3tc.ctex"
+path.s3tc="res://.godot/imported/dwarf sprite sheet.png-78c39ea88f4d71ec9d6f78d0678a2a87.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Player/dwarf sprite sheet.png"
-dest_files=["res://.godot/imported/dwarf sprite sheet.png-d988965d4f185b5c5ca7aec5a48e4693.s3tc.ctex"]
+source_file="res://Art/Enemies/dwarf sprite sheet.png"
+dest_files=["res://.godot/imported/dwarf sprite sheet.png-78c39ea88f4d71ec9d6f78d0678a2a87.s3tc.ctex"]
 
 [params]
 

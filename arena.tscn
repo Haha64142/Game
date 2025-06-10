@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://oqrta31ulqm3"]
+[gd_scene load_steps=9 format=3 uid="uid://oqrta31ulqm3"]
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
+[ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
 [ext_resource type="MeshLibrary" uid="uid://bgtghpx6o3l13" path="res://tile_mesh.tres" id="1_h0wof"]
 [ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
+[ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 
 [sub_resource type="Environment" id="Environment_h0wof"]
 background_mode = 1
@@ -11,7 +13,19 @@ background_color = Color(0.0627451, 0.0627451, 0.054902, 1)
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 
+[sub_resource type="GDScript" id="GDScript_sbb53"]
+script/source = "extends Camera3D
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"reset_attack\"):
+		current = true
+	else:
+		current = false
+"
+
 [node name="Arena" type="Node3D"]
+script = ExtResource("1_fu4bq")
+arrow_scene = ExtResource("5_fu4bq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h0wof")
@@ -40,7 +54,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6.5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 7)
 projection = 1
 size = 10.0
 near = 0.001
@@ -49,7 +63,6 @@ script = ExtResource("2_h0wof")
 [node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
 
 [node name="Center" type="Line2D" parent="."]
-visible = false
 position = Vector2(480, 256)
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 closed = true
@@ -75,3 +88,12 @@ position = Vector2(480, 256)
 points = PackedVector2Array(-160, -85, -160, 85, 160, 85, 160, -85)
 closed = true
 width = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+projection = 1
+fov = 120.0
+size = 30.0
+script = SubResource("GDScript_sbb53")
+
+[connection signal="shoot" from="Player" to="." method="shoot_arrow"]
