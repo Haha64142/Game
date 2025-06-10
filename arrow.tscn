@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcy7lccjcdbl"]
+
+[ext_resource type="Script" uid="uid://6lx4u1vt47lf" path="res://arrow.gd" id="1_2ndhl"]
+[ext_resource type="Texture2D" uid="uid://3eakte23nng0" path="res://Art/Player/Arrow01(32x32).png" id="1_l5ahi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l5ahi"]
+size = Vector3(0.5, 0.15, 0.15)
+
+[node name="Arrow" type="Area3D"]
+script = ExtResource("1_2ndhl")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.25, 0.015, 0)
+render_priority = 1
+texture = ExtResource("1_l5ahi")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0.25, 0, 0.015)
+render_priority = 1
+texture = ExtResource("1_l5ahi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+shape = SubResource("BoxShape3D_l5ahi")
