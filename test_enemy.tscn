@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3cqvxucggx7m"]
+
+[ext_resource type="Script" uid="uid://narn217iee6y" path="res://test_enemy.gd" id="1_ghv5c"]
+[ext_resource type="Texture2D" uid="uid://bamew7jgbhc0q" path="res://icon.svg" id="2_yikbh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghv5c"]
+albedo_texture = ExtResource("2_yikbh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gs3km"]
+material = SubResource("StandardMaterial3D_ghv5c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghv5c"]
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_ghv5c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gs3km")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ghv5c")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
