@@ -10,8 +10,15 @@ var speed_intercept : float
 var move_direction : Vector3 = Vector3.ZERO
 var speed : float
 
+var power : float = 1
+
+func _ready() -> void:
+	find_speed_equation()
+
+
 func _physics_process(delta: float) -> void:
 	position += move_direction * speed * delta
+
 
 func shoot(shot_power: float, mouse_pos: Vector2, player_pos: Vector3) -> void:
 	# get the mouse pos based on the center of the screen
@@ -26,11 +33,12 @@ func shoot(shot_power: float, mouse_pos: Vector2, player_pos: Vector3) -> void:
 	move_direction.x = new_mouse_pos.normalized().x
 	move_direction.z = -new_mouse_pos.normalized().y
 	
-	if shot_power < 0.1:
-		shot_power = 0.1
-	find_speed_equation()
+	power = shot_power
+	if power < 0.1:
+		power = 0.1
 	speed = speed_slope * shot_power + speed_intercept
 	position = player_pos
+
 
 func find_speed_equation() -> void:
 	speed_slope = (MAX_SPEED - MIN_SPEED) / 0.9

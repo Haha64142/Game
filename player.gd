@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal shoot(shot_power, mouse_pos, spawn_pos)
+signal attack1_finished()
 
 @export var WALK_SPEED : float = 10.0
 @export var ACCELERATION_SPEED : float = 30.0
@@ -104,6 +105,7 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 	match $AnimatedSprite3D.animation:
 		"attack1":
 			attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
+			attack1_finished.emit()
 			attack = 0
 			$AnimatedSprite3D.play("idle")
 		
@@ -122,7 +124,6 @@ func _on_animated_sprite_3d_frame_changed() -> void:
 	if $AnimatedSprite3D.animation != "attack1":
 		return
 	
-	print(attack1_hitboxes[$AnimatedSprite3D.frame])
 	attack1_hitboxes[$AnimatedSprite3D.frame].disabled = false
 	
 	if $AnimatedSprite3D.frame == 0:
