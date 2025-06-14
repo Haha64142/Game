@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5ahi"]
 size = Vector3(0.72, 0.2, 0.2)
 
-[node name="Arrow" type="Area3D"]
+[node name="Arrow" type="Area3D" groups=["Arrows"]]
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

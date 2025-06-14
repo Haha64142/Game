@@ -1,8 +1,9 @@
 extends Area3D
 
+var hit_by_attack1 : bool = false
 
-func _on_body_entered(body: Node3D) -> void:
-	print(body.name)
+func attack1_finished() -> void:
+	hit_by_attack1 = false
 
 
 func _on_body_shape_entered(_body_rid: RID, body: Node3D, body_shape_index: int, _local_shape_index: int) -> void:
@@ -14,13 +15,14 @@ func _on_body_shape_entered(_body_rid: RID, body: Node3D, body_shape_index: int,
 	var body_shape_owner = body.shape_find_owner(body_shape_index)
 	var body_shape_node = body.shape_owner_get_owner(body_shape_owner)
 	
-	if body_shape_node.is_in_group("Attack1 Hitboxes"):
-		print("Hit by: " + body_shape_node.name)
+	if body_shape_node.is_in_group("Attack1 Hitboxes") && hit_by_attack1 == false:
+		hit_by_attack1 = true
+		print("Hit by Attack1")
 
 
 func _on_area_shape_entered(_area_rid: RID, area: Area3D, area_shape_index: int, _local_shape_index: int) -> void:
 	var area_shape_owner = area.shape_find_owner(area_shape_index)
-	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
+	var _area_shape_node = area.shape_owner_get_owner(area_shape_owner)
 	
-	print(area.name)
-	print(area_shape_node.name)
+	if area.is_in_group("Arrows"):
+		print("Hit by Arrow with power " + str(area.power))

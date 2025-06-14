@@ -81,7 +81,8 @@ points = PackedVector2Array(-160, -85, -160, 85, 160, 85, 160, -85)
 closed = true
 width = 3.0
 
-[node name="Area3D" parent="." instance=ExtResource("7_pbtuc")]
+[node name="Enemy" parent="." instance=ExtResource("7_pbtuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
+[connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
 [connection signal="shoot" from="Player" to="." method="shoot_arrow"]
