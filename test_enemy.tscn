@@ -11,7 +11,7 @@ material = SubResource("StandardMaterial3D_ghv5c")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ghv5c"]
 
-[node name="Area3D" type="Area3D"]
+[node name="TestEnemy" type="Area3D"]
 script = ExtResource("1_ghv5c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -21,5 +21,6 @@ mesh = SubResource("BoxMesh_gs3km")
 shape = SubResource("BoxShape3D_ghv5c")
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

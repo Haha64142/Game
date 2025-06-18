@@ -84,5 +84,5 @@ width = 3.0
 [node name="Enemy" parent="." instance=ExtResource("7_pbtuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 
+[connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
-[connection signal="shoot" from="Player" to="." method="shoot_arrow"]
