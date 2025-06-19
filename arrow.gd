@@ -3,22 +3,27 @@ extends Area3D
 @export var MAX_SPEED := 25.0
 @export var MIN_SPEED := 10.0
 
+var move_direction := Vector3.ZERO
+var speed := 0.0
+var power := 1.0
+
+var is_stopped := false
+
 # For the speed equation 
 var _speed_slope: float
 var _speed_intercept: float
 
-var move_direction := Vector3.ZERO
-var speed: float
-
-var power: float = 1
-
 func _ready() -> void:
+	add_to_group("Arrows")
 	_find_speed_equation()
 
 
 func _physics_process(delta: float) -> void:
+	if is_stopped:
+		$Sprite3D.modulate = Color(Color.WHITE, $DeleteTimer.time_left / $DeleteTimer.wait_time)
+		$Sprite3D2.modulate = Color(Color.WHITE, $DeleteTimer.time_left / $DeleteTimer.wait_time)
 	position += move_direction * speed * delta
-	if position.length() > 30:
+	if position.length() > 100:
 		queue_free()
 
 
@@ -50,4 +55,11 @@ func _find_speed_equation() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Wall":
-		queue_free()
+		speed = 0
+		is_stopped = true
+		set_deferred("monitorable", false)
+		$DeleteTimer.start()
+
+
+func _on_delete_timer_timeout() -> void:
+	queue_free()

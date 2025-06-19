@@ -20,4 +20,4 @@ func _on_player_arrow_fired(shot_power: float, mouse_pos: Vector2, player_pos: V
 
 
 func _on_player_attack_1_finished() -> void:
-	$Enemy.attack1_finished()
+	get_tree().call_group("Enemies", "attack1_finished")

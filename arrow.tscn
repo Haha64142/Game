@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5ahi"]
 size = Vector3(0.72, 0.2, 0.2)
 
-[node name="Arrow" type="Area3D" groups=["Arrows"]]
+[node name="Arrow" type="Area3D" groups=["Enemies"]]
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -24,4 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, 0)
 shape = SubResource("BoxShape3D_l5ahi")
 debug_color = Color(1, 0, 0.0166664, 0.729412)
 
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
