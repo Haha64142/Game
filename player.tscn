@@ -359,7 +359,11 @@ animation = &"attack1"
 wait_time = 0.7
 one_shot = true
 
-[node name="Attack1-0" type="CollisionPolygon3D" parent="." groups=["Attack1 Hitboxes"]]
+[node name="Attack1" type="Area3D" parent="." groups=["Attack1"]]
+collision_mask = 0
+monitoring = false
+
+[node name="Attack1-0" type="CollisionPolygon3D" parent="Attack1" groups=["Attack1", "Attack1 Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 depth = 0.1
@@ -367,7 +371,7 @@ disabled = true
 polygon = PackedVector2Array(0.221, -0.528, 0.38, -0.442, 0.38, -0.102, 0.221, -0.102)
 debug_color = Color(0, 1, 0, 0.690196)
 
-[node name="Attack1-1" type="CollisionPolygon3D" parent="." groups=["Attack1 Hitboxes"]]
+[node name="Attack1-1" type="CollisionPolygon3D" parent="Attack1" groups=["Attack1", "Attack1 Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 depth = 0.1
@@ -375,7 +379,7 @@ disabled = true
 polygon = PackedVector2Array(0.270439, -0.485382, 0.409579, -0.413638, 0.416101, -0.0723099, 0.27, -0.072)
 debug_color = Color(0, 1, 0, 0.690196)
 
-[node name="Attack1-2" type="CollisionPolygon3D" parent="." groups=["Attack1 Hitboxes"]]
+[node name="Attack1-2" type="CollisionPolygon3D" parent="Attack1" groups=["Attack1", "Attack1 Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 depth = 0.1
@@ -383,7 +387,7 @@ disabled = true
 polygon = PackedVector2Array(0.210174, -0.286182, 0.616295, -0.273937, 0.859151, -0.126999, 0.859151, 0.0913679, 0.530581, 0.29749, -0.269417, 0.303612, -0.624518, 0.115858, 0.208133, 0.0893271, 0.206092, -0.233121)
 debug_color = Color(0, 1, 0, 0.690196)
 
-[node name="Attack1-3" type="CollisionPolygon3D" parent="." groups=["Attack1 Hitboxes"]]
+[node name="Attack1-3" type="CollisionPolygon3D" parent="Attack1" groups=["Attack1", "Attack1 Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 depth = 0.1
@@ -391,7 +395,7 @@ disabled = true
 polygon = PackedVector2Array(0.210174, -0.286182, 0.616295, -0.273937, 0.859151, -0.126999, 0.859151, 0.0913679, 0.530581, 0.29749, -0.269417, 0.303612, -0.624518, 0.115858, 0.208133, 0.0893271, 0.206092, -0.233121)
 debug_color = Color(0, 1, 0, 0.690196)
 
-[node name="Attack1-4" type="CollisionPolygon3D" parent="." groups=["Attack1 Hitboxes"]]
+[node name="Attack1-4" type="CollisionPolygon3D" parent="Attack1" groups=["Attack1", "Attack1 Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 visible = false
 depth = 0.1

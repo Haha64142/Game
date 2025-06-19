@@ -13,11 +13,11 @@ var attack: int = 0 # 0 - no attack, 1 - attack1, 2 - shoot_aim, 3 - shoot_fire
 var _attack_queue := []
 
 @onready var _attack1_hitboxes := [
-		$"Attack1-0",
-		$"Attack1-1",
-		$"Attack1-2",
-		$"Attack1-3",
-		$"Attack1-4",
+		$"Attack1/Attack1-0",
+		$"Attack1/Attack1-1",
+		$"Attack1/Attack1-2",
+		$"Attack1/Attack1-3",
+		$"Attack1/Attack1-4",
 ]
 
 func _ready() -> void:

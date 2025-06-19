@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://dyjvdbh12nvyf" path="res://texture_2d_array.gdshader" id="3_d6bvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xlp04"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 0
@@ -19,7 +19,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6t24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srh3t"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 100
@@ -33,7 +33,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6bvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rnsht"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 102
@@ -47,7 +47,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ivye"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_endm6"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 76
@@ -61,7 +61,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_vra4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w18sb"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 75
@@ -75,7 +75,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlp04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hkurt"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 77
@@ -89,7 +89,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_341ea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ivye"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 129
@@ -101,7 +101,7 @@ size = Vector2(1, 1)
 orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g5a20"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 128
@@ -113,7 +113,7 @@ size = Vector2(1, 1)
 orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jygf0"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 103
@@ -127,7 +127,7 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjn3x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glg8d"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 104
@@ -139,7 +139,7 @@ size = Vector2(1, 1)
 orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u02i4"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 154
@@ -151,7 +151,7 @@ size = Vector2(1, 1)
 orientation = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8tkme"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_d6bvg")
 shader_parameter/texture_albedo = ExtResource("2_d6bvg")
 shader_parameter/index = 153
