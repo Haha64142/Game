@@ -11,7 +11,7 @@ var move_direction := Vector3.ZERO
 var speed := 0.0
 
 func _ready() -> void:
-	add_to_group("Enemies")
+	init()
 	_find_speed_equation()
 
 

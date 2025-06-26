@@ -432,7 +432,6 @@ material = SubResource("StandardMaterial3D_k6t24")
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="WallEdgeBottom" type="MeshInstance3D" parent="Walls"]
-visible = false
 mesh = SubResource("PlaneMesh_341ea")
 skeleton = NodePath("../..")
 

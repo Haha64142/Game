@@ -8,7 +8,7 @@ func _process(_delta: float) -> void:
 	for i in collision_keys:
 		if i != "Floor":
 			_output += ", "
-		_output += i + ": " + ("🟩" if $Enemy.collisions[i] else "🟥")
+		_output += i + ": " + ("🟩" if $TestEnemy.collisions[i] else "🟥")
 	
 	#print(_output)
 

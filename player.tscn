@@ -353,7 +353,7 @@ sorting_offset = 10.0
 shaded = true
 double_sided = false
 sprite_frames = SubResource("SpriteFrames_bfour")
-animation = &"attack1"
+animation = &"idle"
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.7

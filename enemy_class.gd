@@ -1,9 +1,12 @@
 extends Area3D
 class_name Enemy
 
+## If [code]false[/code], the node is hidden and doesn't use collisions
+@export var enabled := true
+
+@export_group("Attributes")
 @export var health: int = 10
 @export var damage: int = 10
-@export var wall_collisions := true
 
 var collisions := {
 	"FloorInt": 0,
@@ -20,19 +23,30 @@ var collisions := {
 
 var _hit_by_attack1 := false
 
-# Virtual function that triggers when the enemy gets hit
-func _handle_hit(_attack: String, node: Node3D) -> void:
+func _init() -> void:
+	add_to_group("Enemies")
+
+
+## Virtual function that triggers when the enemy gets hit
+func _handle_hit(_attack: String, _node: Node3D) -> void:
 	pass
 
 
-# Virtual function that triggers when the enemy hits the player
+## Virtual function that triggers when the enemy hits the player
 func _hit_player() -> void:
 	pass
 
 
-# Virtual function that trigger with any new collision
+## Virtual function that trigger with any new collision
 func _handle_collision(_node: Node3D, _shape_index: int) -> void:
 	pass
+
+
+## Function to be called in the [method Node._ready] function
+func init() -> void:
+	visible = enabled
+	monitoring = enabled
+	monitorable = enabled
 
 
 # Called by the arena node
