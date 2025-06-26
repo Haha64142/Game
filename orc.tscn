@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://3cmnpsfgnrb3"]
 
-[ext_resource type="Script" uid="uid://calgt8ephvv2a" path="res://default_enemy.gd" id="1_j1w4x"]
+[ext_resource type="Script" uid="uid://calgt8ephvv2a" path="res://orc.gd" id="1_j1w4x"]
 [ext_resource type="Texture2D" uid="uid://4hlvxrqiuafy" path="res://Art/Enemies/Orc.png" id="2_8x117"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqjxm"]
@@ -280,7 +280,7 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1w4x"]
 size = Vector3(0.605103, 0.736465, 0.3)
 
-[node name="DefaultEnemy" type="Area3D"]
+[node name="Orc" type="Area3D"]
 script = ExtResource("1_j1w4x")
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
@@ -290,7 +290,7 @@ sorting_offset = 10.0
 sprite_frames = SubResource("SpriteFrames_n7jbd")
 animation = &"idle"
 
-[node name="RegEnemyCollision" type="CollisionShape3D" parent="."]
+[node name="OrcCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 0.0180588, -0.134946)
 shape = SubResource("BoxShape3D_j1w4x")
 

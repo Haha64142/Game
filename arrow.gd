@@ -20,8 +20,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_stopped:
-		$Sprite3D.modulate = Color(Color.WHITE, $DeleteTimer.time_left / $DeleteTimer.wait_time)
-		$Sprite3D2.modulate = Color(Color.WHITE, $DeleteTimer.time_left / $DeleteTimer.wait_time)
+		$Sprite3D.modulate = Color(Color.WHITE,
+				$DeleteTimer.time_left / $DeleteTimer.wait_time)
+		$Sprite3D2.modulate = Color(Color.WHITE,
+				$DeleteTimer.time_left / $DeleteTimer.wait_time)
 	position += move_direction * speed * delta
 	if position.length() > 100:
 		queue_free()

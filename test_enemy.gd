@@ -11,7 +11,7 @@ var move_direction := Vector3.ZERO
 var speed := 0.0
 
 func _ready() -> void:
-	init()
+	initialize()
 	_find_speed_equation()
 
 
@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 		speed = 0.0
 
 
-func _handle_hit(attack: String, node: Node3D) -> void:
+func _handle_hit(attack: AttackType, node: Node3D) -> void:
 	match attack:
-		"Attack1":
+		AttackType.Attack1:
 			print("Hit by Attack1")
 		
-		"Arrow":
+		AttackType.Arrow:
 			move_direction = node.move_direction
 			speed = _speed_slope * node.power + _speed_intercept
 			print("Hit by Arrow")

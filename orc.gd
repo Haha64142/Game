@@ -5,26 +5,26 @@ var speed := 5.0
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready() -> void:
-	init()
-	add_to_group("Reg Enemies")
+	initialize()
+	add_to_group("Orcs")
 	
-	nav_agent.call_deferred("set_target_position", Global.player_pos)
+	nav_agent.set_target_position(Global.player_pos)
 
 
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		return
 	
-	var next_path_position := nav_agent.get_next_path_position()
+	var next_path_position: Vector3 = nav_agent.get_next_path_position()
 	position = position.move_toward(next_path_position, delta * speed)
 
 
-func _handle_hit(attack: String, node: Node3D) -> void:
+func _handle_hit(attack: AttackType, node: Node3D) -> void:
 	match attack:
-		"Attack1":
+		AttackType.Attack1:
 			print("Hit by Attack1")
 		
-		"Arrow":
+		AttackType.Arrow:
 			print("Hit by Arrow")
 
 

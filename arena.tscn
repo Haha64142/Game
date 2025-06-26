@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
-[ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://default_enemy.tscn" id="8_yokb4"]
+[ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
 
 [sub_resource type="Environment" id="Environment_h0wof"]
 background_mode = 1
@@ -99,7 +99,8 @@ width = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 enabled = false
 
-[node name="DefaultEnemy" parent="." instance=ExtResource("8_yokb4")]
+[node name="Orc" parent="." instance=ExtResource("8_yokb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67496, 0.849591, 0)
 
 [connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]

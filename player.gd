@@ -1,7 +1,14 @@
 extends CharacterBody3D
 
-signal arrow_fired(shot_power, mouse_pos, spawn_pos)
+signal arrow_fired(shot_power: float, mouse_pos: Vector2, spawn_pos: Vector3)
 signal attack1_finished()
+
+enum AttackAnimation {
+	None,
+	Attack1,
+	ShootAim,
+	ShootFire,
+}
 
 @export var WALK_SPEED := 10.0
 @export var ACCELERATION_SPEED := 30.0
@@ -9,10 +16,10 @@ signal attack1_finished()
 @export var GRAVITY := 25.0
 @export var TERMINAL_VELOCITY := 50.0
 
-var attack: int = 0 # 0 - no attack, 1 - attack1, 2 - shoot_aim, 3 - shoot_fire
-var _attack_queue := []
+var attack: AttackAnimation = AttackAnimation.None
+var _attack_queue: Array[AttackAnimation] = []
 
-@onready var _attack1_hitboxes := [
+@onready var _attack1_hitboxes: Array[CollisionPolygon3D] = [
 		$"Attack1/Attack1-0",
 		$"Attack1/Attack1-1",
 		$"Attack1/Attack1-2",
@@ -33,30 +40,34 @@ func _process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_forward", "move_back")
 	direction = direction.normalized()
-	if attack == 1:
+	if attack == AttackAnimation.Attack1:
 		direction = Vector2.ZERO
-	elif attack == 2:
+	elif attack == AttackAnimation.ShootAim:
 		direction /= 8
 	
 	if velocity.x < direction.x * WALK_SPEED:
-		velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED, ACCELERATION_SPEED * delta)
+		velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED,
+				ACCELERATION_SPEED * delta)
 	if velocity.z < direction.y * WALK_SPEED:
-		velocity.z = move_toward(velocity.z, direction.y * WALK_SPEED, ACCELERATION_SPEED * delta)
+		velocity.z = move_toward(velocity.z, direction.y * WALK_SPEED,
+				ACCELERATION_SPEED * delta)
 	if velocity.x > direction.x * WALK_SPEED:
-		velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED, DECELERATION_SPEED * delta)
+		velocity.x = move_toward(velocity.x, direction.x * WALK_SPEED,
+				DECELERATION_SPEED * delta)
 	if velocity.z > direction.y * WALK_SPEED:
-		velocity.z = move_toward(velocity.z, direction.y * WALK_SPEED, DECELERATION_SPEED * delta)
+		velocity.z = move_toward(velocity.z, direction.y * WALK_SPEED,
+				DECELERATION_SPEED * delta)
 	
 	if Input.is_action_just_pressed("attack"):
-		_attack_queue.push_back(1)
+		_attack_queue.push_back(AttackAnimation.Attack1)
 	
 	if Input.is_action_just_pressed("shoot"):
-		_attack_queue.push_back(2)
+		_attack_queue.push_back(AttackAnimation.ShootAim)
 	
 	if Input.is_action_just_pressed("reset_attack"):
 		_attack_queue.clear()
 	
-	if attack == 0:
+	if attack == AttackAnimation.None:
 		if not Global.mouse_visible:
 			if Global.mouse_pos.x >= 480:
 				$AnimatedSprite3D.flip_h = false
@@ -70,15 +81,15 @@ func _process(delta: float) -> void:
 		
 		if not _attack_queue.is_empty():
 			match _attack_queue.pop_front():
-				1:
+				AttackAnimation.Attack1:
 					$AnimatedSprite3D.play("attack1")
-					attack = 1
-				2:
+					attack = AttackAnimation.Attack1
+				AttackAnimation.ShootAim:
 					$AnimatedSprite3D.play("shoot_aim")
 					$ShotTimer.start()
-					attack = 2
+					attack = AttackAnimation.ShootAim
 	
-	elif attack == 2:
+	elif attack == AttackAnimation.ShootAim:
 		if not Global.mouse_visible:
 			if Global.mouse_pos.x >= 480:
 				$AnimatedSprite3D.flip_h = false
@@ -87,8 +98,9 @@ func _process(delta: float) -> void:
 		
 		if !Input.is_action_pressed("shoot"):
 			$AnimatedSprite3D.play("shoot_fire")
-			arrow_fired.emit(1 - $ShotTimer.time_left / 0.7, Global.mouse_pos, position)
-			attack = 3
+			arrow_fired.emit(1 - $ShotTimer.time_left / 0.7,
+					Global.mouse_pos, position)
+			attack = AttackAnimation.ShootFire
 	
 	
 	velocity.y = maxf(-TERMINAL_VELOCITY, velocity.y - GRAVITY * delta)
@@ -106,17 +118,18 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 		"attack1":
 			_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
 			attack1_finished.emit()
-			attack = 0
+			attack = AttackAnimation.None
 			$AnimatedSprite3D.play("idle")
 		
 		"shoot_aim":
 			if not Input.is_action_pressed("shoot"):
 				$AnimatedSprite3D.play("shoot_fire")
-				arrow_fired.emit(1 - $ShotTimer.time_left / 0.7, Global.mouse_pos, position)
-				attack = 3
+				arrow_fired.emit(1 - $ShotTimer.time_left / 0.7,
+						Global.mouse_pos, position)
+				attack = AttackAnimation.ShootFire
 		
 		"shoot_fire":
-			attack = 0
+			attack = AttackAnimation.None
 			$AnimatedSprite3D.play("idle")
 
 

@@ -1,7 +1,9 @@
 extends Camera3D
 
 var _vector_diff := Vector2(0, 0)
-var _center := Vector2(ProjectSettings.get_setting("display/window/size/viewport_width") / 2, ProjectSettings.get_setting("display/window/size/viewport_height") / 2)
+var _center := Vector2(
+		ProjectSettings.get_setting("display/window/size/viewport_width") / 2,
+		ProjectSettings.get_setting("display/window/size/viewport_height") / 2)
 
 func _ready() -> void:
 	position = Vector3(0, 7, 7)
