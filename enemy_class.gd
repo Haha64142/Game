@@ -19,6 +19,7 @@ enum AttackType {
 @export var enabled := true
 
 @export_group("Attributes")
+@export var speed := 10.0
 @export var health: int = 10
 @export var damage: int = 10
 
@@ -96,7 +97,7 @@ func attack1_finished() -> void:
 
 func update_collisions_dict() -> void:
 	var half_size: int = collisions.size() / 2
-	var keys: Array[String] = collisions.keys()
+	var keys: Array = collisions.keys()
 	for i in range(half_size):
 		if collisions[keys[i]] > 0:
 			collisions[keys[i + half_size]] = true

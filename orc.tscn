@@ -282,6 +282,7 @@ size = Vector3(0.605103, 0.736465, 0.3)
 
 [node name="Orc" type="Area3D"]
 script = ExtResource("1_j1w4x")
+speed = 5.0
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -297,4 +298,4 @@ shape = SubResource("BoxShape3D_j1w4x")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
 
-[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

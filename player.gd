@@ -19,6 +19,8 @@ enum AttackAnimation {
 var attack: AttackAnimation = AttackAnimation.None
 var _attack_queue: Array[AttackAnimation] = []
 
+var prev_positions: Dictionary[int, Vector3] = {}
+
 @onready var _attack1_hitboxes: Array[CollisionPolygon3D] = [
 		$"Attack1/Attack1-0",
 		$"Attack1/Attack1-1",
@@ -31,10 +33,18 @@ func _ready() -> void:
 	for hitbox in _attack1_hitboxes:
 		hitbox.disabled = true
 	position = Global.respawn_pos
+	prev_positions[int(GameTime.seconds * 10)] = position
 	$AnimatedSprite3D.play("idle")
 
 
 func _process(delta: float) -> void:
+	prev_positions[int(GameTime.seconds * 10)] = position
+	if prev_positions.size() > 100:
+		var keys = prev_positions.keys()
+		keys.sort()
+		
+		prev_positions.erase(keys[0])
+	
 	var direction := Vector2.ZERO
 
 	direction.x = Input.get_axis("move_left", "move_right")
@@ -71,8 +81,10 @@ func _process(delta: float) -> void:
 		if not Global.mouse_visible:
 			if Global.mouse_pos.x >= 480:
 				$AnimatedSprite3D.flip_h = false
+				$Attack1.scale.x = 1
 			elif Global.mouse_pos.x < 480:
 				$AnimatedSprite3D.flip_h = true
+				$Attack1.scale.x = -1
 		
 		if abs(velocity.x) + abs(velocity.z) > 0:
 			$AnimatedSprite3D.animation = "run"
@@ -93,8 +105,10 @@ func _process(delta: float) -> void:
 		if not Global.mouse_visible:
 			if Global.mouse_pos.x >= 480:
 				$AnimatedSprite3D.flip_h = false
+				$Attack1.scale.x = 1
 			elif Global.mouse_pos.x < 480:
 				$AnimatedSprite3D.flip_h = true
+				$Attack1.scale.x = -1
 		
 		if !Input.is_action_pressed("shoot"):
 			$AnimatedSprite3D.play("shoot_fire")

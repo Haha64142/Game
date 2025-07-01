@@ -8,7 +8,6 @@ var _speed_slope: float
 var _speed_intercept: float
 
 var move_direction := Vector3.ZERO
-var speed := 0.0
 
 func _ready() -> void:
 	initialize()

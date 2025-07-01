@@ -2,7 +2,15 @@ extends Node3D
 
 @export var arrow_scene: PackedScene
 
+@onready var player = $Player
+
+func _ready() -> void:
+	GameTime.start()
+
+
 func _process(_delta: float) -> void:
+	get_tree().call_group("Orcs", "set_target_pos", player.prev_positions)
+	
 	var collision_keys: Array[String] = [
 		"Floor",
 		"Wall",
