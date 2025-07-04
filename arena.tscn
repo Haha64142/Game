@@ -26,6 +26,7 @@ edge_max_error = 0.1
 [node name="Arena" type="Node3D"]
 script = ExtResource("1_fu4bq")
 arrow_scene = ExtResource("5_fu4bq")
+orc_scene = ExtResource("8_yokb4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h0wof")
@@ -33,7 +34,7 @@ environment = SubResource("Environment_h0wof")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_pbtuc")
 
-[node name="Floor" type="GridMap" parent="NavigationRegion3D" groups=["Floor"]]
+[node name="Floor" type="GridMap" parent="NavigationRegion3D" groups=["Floors"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
 mesh_library = ExtResource("1_h0wof")
 cell_size = Vector3(1, 1, 1)
@@ -99,8 +100,9 @@ width = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 enabled = false
 
-[node name="Orc" parent="." instance=ExtResource("8_yokb4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67496, 0.849591, 0)
+[node name="OrcSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
+[connection signal="timeout" from="OrcSpawnTimer" to="." method="_on_orc_spawn_timer_timeout"]

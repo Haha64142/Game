@@ -44,14 +44,13 @@ version_control/autoload_on_startup=true
 
 [global_group]
 
-"Attack1 Hitboxes"=""
-"Player Hitbox"=""
-Arrows=""
 Enemies=""
 Walls=""
-Floor=""
-Attack1=""
 Orcs=""
+Arrows=""
+Floors=""
+Hitboxes=""
+Weapons=""
 
 [input]
 

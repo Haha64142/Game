@@ -13,12 +13,12 @@ orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ghv5c"]
 
-[node name="TestEnemy" type="Area3D"]
+[node name="TestEnemy" type="Area3D" groups=["Enemies"]]
 script = ExtResource("1_ghv5c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_x4eh8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_ghv5c")

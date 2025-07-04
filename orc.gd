@@ -1,12 +1,26 @@
 extends Enemy
 
-## Player position offset time, in 1/10 second units (10 = 1.0s).
+## Player position offset time, in 1/100 second units (100 = 1.0s).
 ## The Orc goes to where the player was this amount of time ago
-@export var chase_delay: int = 5
+@export var chase_delay: int = 50
 
 var hurt := false
+var dead := false
+
+var player_pos := Vector3.ZERO
+var attacking := false
+var _player_hit_by_attack1 := false
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+
+@onready var _attack1_hitboxes: Array[CollisionPolygon3D] = [
+	$"Attack1-0",
+	$"Attack1-1",
+	$"Attack1-2",
+	$"Attack1-3",
+	$"Attack1-4",
+	$"Attack1-5",
+]
 
 func _ready() -> void:
 	initialize()
@@ -16,19 +30,29 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if nav_agent.is_navigation_finished():
+	if attacking or hurt or dead:
 		return
 	
-	if hurt:
+	if position.distance_to(player_pos) <= 0.5:
+		$AnimatedSprite3D.play("attack1")
+		attacking = true
+		if player_pos.x >= position.x:
+			scale.x = 1
+		else:
+			scale.x = -1
+		return
+	
+	if nav_agent.is_navigation_finished():
+		$AnimatedSprite3D.play("idle")
 		return
 	
 	var next_path_position: Vector3 = nav_agent.get_next_path_position()
 	
 	var velocity = next_path_position - position
 	if velocity.x >= 0:
-		$AnimatedSprite3D.flip_h = false
+		scale.x = 1
 	else:
-		$AnimatedSprite3D.flip_h = true
+		scale.x = -1
 	
 	if velocity.length() > 0:
 		$AnimatedSprite3D.play("run")
@@ -40,7 +64,7 @@ func _physics_process(delta: float) -> void:
 
 func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
 	var target_pos = find_closest_pos_to(player_prev_pos,
-			int(GameTime.seconds * 10) - chase_delay)
+			int(GameTime.seconds * 100) - chase_delay)
 	
 	nav_agent.set_target_position(target_pos)
 
@@ -60,17 +84,38 @@ func find_closest_pos_to(player_prev_pos: Dictionary[int, Vector3],
 	return player_prev_pos[keys.back()]
 
 
-func _handle_hit(attack: AttackType, node: Node3D) -> void:
+func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
+	if hurt:
+		return
+	if attacking:
+		_attack1_hitboxes[$AnimatedSprite3D.frame].set_deferred(
+				"disabled", true
+		)
+		attacking = false
 	match attack:
-		AttackType.Attack1:
+		Global.AttackType.Attack1:
 			print("Hit by Attack1")
 			$AnimatedSprite3D.play("hurt")
 			hurt = true
+			health -= Global.player_damages[attack]
 		
-		AttackType.Arrow:
+		Global.AttackType.Arrow:
 			print("Hit by Arrow")
 			$AnimatedSprite3D.play("hurt")
 			hurt = true
+			health -= Global.player_damages[attack]
+	
+	if health <= 0:
+		$AnimatedSprite3D.play("death")
+		dead = true
+
+
+func _hit_player() -> void:
+	if _player_hit_by_attack1:
+		return
+	
+	_player_hit_by_attack1 = true
+	print("Hit Player")
 
 
 func _on_animated_sprite_3d_animation_finished() -> void:
@@ -78,3 +123,16 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 		"hurt":
 			hurt = false
 			$AnimatedSprite3D.play("idle")
+		"attack1":
+			attacking = false
+			_player_hit_by_attack1 = false
+			_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
+			$AnimatedSprite3D.play("idle")
+
+
+func _on_animated_sprite_3d_frame_changed() -> void:
+	if $AnimatedSprite3D.animation != "attack1":
+		return
+	
+	_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = false
+	_attack1_hitboxes[$AnimatedSprite3D.frame - 1].disabled = true

@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5ahi"]
 size = Vector3(0.72, 0.2, 0.2)
 
-[node name="Arrow" type="Area3D" groups=["Enemies"]]
+[node name="Arrow" type="Area3D" groups=["Arrows", "Weapons"]]
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -19,7 +19,7 @@ transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 0.2, 0
 render_priority = 1
 texture = ExtResource("1_l5ahi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, 0)
 shape = SubResource("BoxShape3D_l5ahi")
 debug_color = Color(1, 0, 0.0166664, 0.729412)

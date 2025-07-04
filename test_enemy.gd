@@ -21,12 +21,12 @@ func _physics_process(delta: float) -> void:
 		speed = 0.0
 
 
-func _handle_hit(attack: AttackType, node: Node3D) -> void:
+func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 	match attack:
-		AttackType.Attack1:
+		Global.AttackType.Attack1:
 			print("Hit by Attack1")
 		
-		AttackType.Arrow:
+		Global.AttackType.Arrow:
 			move_direction = node.move_direction
 			speed = _speed_slope * node.power + _speed_intercept
 			print("Hit by Arrow")

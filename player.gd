@@ -10,6 +10,17 @@ enum AttackAnimation {
 	ShootFire,
 }
 
+@export_group("Attributes")
+@export var health: int = 10
+
+@export_subgroup("Weapons")
+@export var damages: Dictionary[Global.AttackType, int] = {
+	Global.AttackType.None: 0,
+	Global.AttackType.Attack1: 5,
+	Global.AttackType.Arrow: 3,
+}
+
+@export_subgroup("Movement")
 @export var WALK_SPEED := 10.0
 @export var ACCELERATION_SPEED := 30.0
 @export var DECELERATION_SPEED := 50.0
@@ -22,24 +33,27 @@ var _attack_queue: Array[AttackAnimation] = []
 var prev_positions: Dictionary[int, Vector3] = {}
 
 @onready var _attack1_hitboxes: Array[CollisionPolygon3D] = [
-		$"Attack1/Attack1-0",
-		$"Attack1/Attack1-1",
-		$"Attack1/Attack1-2",
-		$"Attack1/Attack1-3",
-		$"Attack1/Attack1-4",
+	$"Attack1/Attack1-0",
+	$"Attack1/Attack1-1",
+	$"Attack1/Attack1-2",
+	$"Attack1/Attack1-3",
+	$"Attack1/Attack1-4",
 ]
 
 func _ready() -> void:
+	Global.player_damages = damages
+	print(Global.player_damages)
+	
 	for hitbox in _attack1_hitboxes:
 		hitbox.disabled = true
 	position = Global.respawn_pos
-	prev_positions[int(GameTime.seconds * 10)] = position
+	prev_positions[int(GameTime.seconds * 100)] = position
 	$AnimatedSprite3D.play("idle")
 
 
 func _process(delta: float) -> void:
-	prev_positions[int(GameTime.seconds * 10)] = position
-	if prev_positions.size() > 100:
+	prev_positions[int(GameTime.seconds * 100)] = position
+	if prev_positions.size() > 500:
 		var keys = prev_positions.keys()
 		keys.sort()
 		
@@ -152,7 +166,4 @@ func _on_animated_sprite_3d_frame_changed() -> void:
 		return
 	
 	_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = false
-	
-	if $AnimatedSprite3D.frame == 0:
-		return
 	_attack1_hitboxes[$AnimatedSprite3D.frame - 1].disabled = true

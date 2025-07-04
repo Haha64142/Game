@@ -280,9 +280,10 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1w4x"]
 size = Vector3(0.605103, 0.736465, 0.3)
 
-[node name="Orc" type="Area3D"]
+[node name="Orc" type="Area3D" groups=["Enemies", "Orcs"]]
 script = ExtResource("1_j1w4x")
 speed = 5.0
+damage = 5
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -291,11 +292,50 @@ sorting_offset = 10.0
 sprite_frames = SubResource("SpriteFrames_n7jbd")
 animation = &"idle"
 
-[node name="OrcCollision" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 0.0180588, -0.134946)
 shape = SubResource("BoxShape3D_j1w4x")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
 path_height_offset = 0.15
 
+[node name="Attack1-0" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(0.406618, 0.000864428, 0.597303, 0.151755, 0.792964, 0.0638736, 0.799596, -0.0654611, 0.605594, -0.164949, 0.474601, -0.150026)
+
+[node name="Attack1-1" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(0.318736, 0.332492, 0.461336, 0.443587, 0.652022, 0.309278, 0.647048, 0.21808, 0.514397, 0.106985, 0.312104, 0.131857)
+
+[node name="Attack1-2" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(-0.671554, 0.479896, -0.578698, 0.602599, -0.397961, 0.599282, -0.260336, 0.445075, -0.293499, 0.367143, -0.451022, 0.317399)
+
+[node name="Attack1-3" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(0.237593, 0.515315, 0.482997, 0.480494, 0.751615, 0.395929, 1.1562, -0.0335283, 1.16118, -0.323703, 0.955566, -0.434798, 0.758248, -0.406609, 0.190435, -0.0606652)
+
+[node name="Attack1-4" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(1.1562, -0.0335283, 1.16118, -0.323703, 0.955566, -0.434798, 0.758248, -0.406609, 0.190435, -0.0606652)
+
+[node name="Attack1-5" type="CollisionPolygon3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
+depth = 0.3
+disabled = true
+polygon = PackedVector2Array(0.991315, -0.156837, 1.04769, -0.301095, 0.90675, -0.408874, 0.758248, -0.406609, 0.179003, -0.0916262)
+
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_frame_changed"]

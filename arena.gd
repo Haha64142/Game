@@ -1,16 +1,20 @@
 extends Node3D
 
 @export var arrow_scene: PackedScene
+@export var orc_scene: PackedScene
+
+var OrcNode: Area3D
 
 @onready var player = $Player
 
 func _ready() -> void:
 	GameTime.start()
+	OrcNode = orc_scene.instantiate()
+	$OrcSpawnTimer.timeout.emit()
+	$OrcSpawnTimer.start()
 
 
 func _process(_delta: float) -> void:
-	get_tree().call_group("Orcs", "set_target_pos", player.prev_positions)
-	
 	var collision_keys: Array[String] = [
 		"Floor",
 		"Wall",
@@ -27,6 +31,11 @@ func _process(_delta: float) -> void:
 	#print(_output)
 
 
+func _physics_process(delta: float) -> void:
+	get_tree().call_group("Orcs", "set_target_pos", player.prev_positions)
+	get_tree().set_group("Orcs", "player_pos", player.position)
+
+
 func _on_player_arrow_fired(shot_power: float,
 		mouse_pos: Vector2, player_pos: Vector3) -> void:
 	var Arrow: Area3D = arrow_scene.instantiate()
@@ -36,3 +45,11 @@ func _on_player_arrow_fired(shot_power: float,
 
 func _on_player_attack_1_finished() -> void:
 	get_tree().call_group("Enemies", "attack1_finished")
+
+
+func _on_orc_spawn_timer_timeout() -> void:
+	var Orc: Area3D = OrcNode.duplicate()
+	var rand_scale = randf_range(1.0, 9.0)
+	Orc.position = Vector3(randf() * rand_scale,
+			OrcNode.position.y, randf() * rand_scale)
+	add_child(Orc)
