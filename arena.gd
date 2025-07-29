@@ -49,7 +49,8 @@ func _on_player_attack_1_finished() -> void:
 
 func _on_orc_spawn_timer_timeout() -> void:
 	var Orc: Area3D = OrcNode.duplicate()
-	var rand_scale = randf_range(1.0, 9.0)
-	Orc.position = Vector3(randf() * rand_scale,
-			OrcNode.position.y, randf() * rand_scale)
+	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
+	spawn_pos *= randf_range(0.0, 9.0)
+	Orc.position = Vector3(spawn_pos.x,
+			OrcNode.position.y, spawn_pos.y)
 	add_child(Orc)
