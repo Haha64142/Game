@@ -15,8 +15,8 @@ extends Area3D
 
 @export_group("Attributes")
 @export var speed := 10.0
-@export var health: int = 10
-@export var damage: int = 10
+@export var health: int = 100
+@export var attack_damage: int = 100
 
 var collisions := {
 	"FloorInt": 0,

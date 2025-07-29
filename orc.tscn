@@ -283,7 +283,6 @@ size = Vector3(0.605103, 0.736465, 0.3)
 [node name="Orc" type="Area3D" groups=["Enemies", "Orcs"]]
 script = ExtResource("1_j1w4x")
 speed = 5.0
-damage = 5
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

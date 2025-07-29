@@ -11,13 +11,13 @@ enum AttackAnimation {
 }
 
 @export_group("Attributes")
-@export var health: int = 10
+@export var health: int = 100
 
 @export_subgroup("Weapons")
 @export var damages: Dictionary[Global.AttackType, int] = {
 	Global.AttackType.None: 0,
-	Global.AttackType.Attack1: 5,
-	Global.AttackType.Arrow: 3,
+	Global.AttackType.Attack1: 50,
+	Global.AttackType.Arrow: 30,
 }
 
 @export_subgroup("Movement")
@@ -42,7 +42,6 @@ var prev_positions: Dictionary[int, Vector3] = {}
 
 func _ready() -> void:
 	Global.player_damages = damages
-	print(Global.player_damages)
 	
 	for hitbox in _attack1_hitboxes:
 		hitbox.disabled = true

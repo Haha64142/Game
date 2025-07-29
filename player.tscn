@@ -342,7 +342,7 @@ animations = [{
 [node name="Player" type="CharacterBody3D"]
 disable_mode = 2
 script = ExtResource("1_p6a14")
-health = 20
+health = 200
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.00127029, 0.0873618, -0.131)
