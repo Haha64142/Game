@@ -5,7 +5,7 @@ extends Area3D
 
 var move_direction := Vector3.ZERO
 var speed := 0.0
-var power := 1.0
+var power := 1.0 # 0.1 - 1
 
 var is_stopped := false
 
@@ -14,7 +14,7 @@ var _speed_slope: float
 var _speed_intercept: float
 
 func _ready() -> void:
-	add_to_group("Arrows")
+	add_to_group("Arrows", true)
 	_find_speed_equation()
 
 

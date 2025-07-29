@@ -85,7 +85,7 @@ func find_closest_pos_to(player_prev_pos: Dictionary[int, Vector3],
 
 
 func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
-	if hurt:
+	if hurt or dead:
 		return
 	if attacking:
 		_attack1_hitboxes[$AnimatedSprite3D.frame].set_deferred(
@@ -103,11 +103,18 @@ func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 			print("Hit by Arrow")
 			$AnimatedSprite3D.play("hurt")
 			hurt = true
-			health -= Global.player_damages[attack]
+			var damage = Global.player_damages[attack] * node.power
+			damage = max(damage, 10)
+			health -= damage
 	
+	print(health)
+	if hurt:
+		await $AnimatedSprite3D.animation_finished
 	if health <= 0:
 		$AnimatedSprite3D.play("death")
 		dead = true
+		monitoring = false
+		monitorable = false
 
 
 func _hit_player() -> void:

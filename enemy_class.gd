@@ -79,9 +79,9 @@ func initialize() -> void:
 	assert(has_node("Hitbox"), "The Enemy class requires a CollisionObject3D 
 			or CollisionPolygon3D child node named 'Hitbox'")
 	
-	visible = enabled
-	monitoring = enabled
-	monitorable = enabled
+	$Hitbox.add_to_group("Hitboxes");
+	
+	set_enabled(enabled)
 	
 	body_shape_entered.connect(_on_body_shape_entered)
 	body_shape_exited.connect(_on_body_shape_exited)
@@ -94,6 +94,13 @@ func initialize() -> void:
 ## it would say it was hit each time the player's collision shape changed
 func attack1_finished() -> void:
 	_hit_by_attack1 = false
+
+
+func set_enabled(value: bool) -> void:
+	enabled = value
+	visible = value
+	monitoring = value
+	monitorable = value
 
 
 func update_collisions_dict() -> void:
