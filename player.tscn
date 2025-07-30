@@ -339,7 +339,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 disable_mode = 2
 script = ExtResource("1_p6a14")
 health = 200

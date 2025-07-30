@@ -94,20 +94,17 @@ func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 		attacking = false
 	match attack:
 		Global.AttackType.Attack1:
-			print("Hit by Attack1")
 			$AnimatedSprite3D.play("hurt")
 			hurt = true
 			health -= Global.player_damages[attack]
 		
 		Global.AttackType.Arrow:
-			print("Hit by Arrow")
 			$AnimatedSprite3D.play("hurt")
 			hurt = true
 			var damage = Global.player_damages[attack] * node.power
 			damage = max(damage, 10)
 			health -= damage
 	
-	print(health)
 	if hurt:
 		await $AnimatedSprite3D.animation_finished
 	if health <= 0:
@@ -122,7 +119,7 @@ func _hit_player() -> void:
 		return
 	
 	_player_hit_by_attack1 = true
-	print("Hit Player")
+	get_tree().call_group("Player", "_on_hit_by_enemy", self)
 
 
 func _on_animated_sprite_3d_animation_finished() -> void:

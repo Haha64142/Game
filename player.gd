@@ -140,6 +140,12 @@ func _process(delta: float) -> void:
 		velocity = Vector3.ZERO
 
 
+func _on_hit_by_enemy(enemy: Enemy) -> void:
+	print("Hit by Enemy")
+	# Still need to make it do something.
+	# I'm thinking I might have to make a state machine to make the code better
+
+
 func _on_animated_sprite_3d_animation_finished() -> void:
 	match $AnimatedSprite3D.animation:
 		"attack1":
