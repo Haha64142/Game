@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Bullet Hell"
+config/name="Random Game"
 run/main_scene="res://arena.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.2, 0.2, 0.2, 1)
@@ -51,6 +51,7 @@ Arrows=""
 Floors=""
 Hitboxes=""
 Weapons=""
+Player=""
 
 [input]
 
@@ -118,4 +119,5 @@ reset_attack={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 textures/lossless_compression/force_png=true
