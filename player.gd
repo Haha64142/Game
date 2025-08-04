@@ -140,6 +140,16 @@ func _process(delta: float) -> void:
 		velocity = Vector3.ZERO
 
 
+func update_circles(green_radius: float) -> void:
+	# Red Circle
+	$RedCircle.visible = Global.display_debug_circles
+	
+	# Green Circle
+	$GreenCircle.mesh.top_radius = green_radius
+	$GreenCircle.mesh.bottom_radius = green_radius
+	$GreenCircle.visible = Global.display_debug_circles
+
+
 func _on_hit_by_enemy(enemy: Enemy) -> void:
 	print("Hit by Enemy")
 	# Still need to make it do something.

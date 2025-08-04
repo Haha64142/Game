@@ -1,5 +1,8 @@
 extends Node
 
+@export var display_debug_boxes = false
+@export var display_debug_circles = false
+
 enum AttackType {
 	None,
 	Attack1,

@@ -63,8 +63,42 @@ func _physics_process(delta: float) -> void:
 
 
 func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
-	var target_pos = find_closest_pos_to(player_prev_pos,
+	# Blue box
+	var delayed_player_pos := find_closest_pos_to(player_prev_pos,
 			int(GameTime.seconds * 100) - chase_delay)
+	
+	var player_distance := (player_pos - position).length() # Orc -> Red box
+	var current_to_delayed_player_distance := (
+			player_pos - delayed_player_pos
+	).length() # Blue box -> Red box
+	
+	var target_pos: Vector3
+	if player_distance < 2:
+		target_pos = player_pos
+	else:
+		if !(player_distance < current_to_delayed_player_distance):
+			target_pos = delayed_player_pos
+		else:
+			var temp_delay = 10 * player_distance
+			target_pos = find_closest_pos_to(player_prev_pos,
+					int(GameTime.seconds * 100) - temp_delay)
+			
+	
+	# Red box
+	$PlayerPos.position = player_pos
+	$PlayerPos.visible = Global.display_debug_boxes
+	
+	# Blue box
+	$DelayedPlayerPos.position = delayed_player_pos
+	$DelayedPlayerPos.visible = Global.display_debug_boxes
+	
+	# Target box
+	$Target.position = target_pos
+	$Target.visible = Global.display_debug_boxes
+	
+	# Update player circles
+	get_tree().call_group("Player", "update_circles",
+			current_to_delayed_player_distance)
 	
 	nav_agent.set_target_position(target_pos)
 

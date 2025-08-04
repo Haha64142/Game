@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://3cmnpsfgnrb3"]
+[gd_scene load_steps=45 format=3 uid="uid://3cmnpsfgnrb3"]
 
 [ext_resource type="Script" uid="uid://calgt8ephvv2a" path="res://orc.gd" id="1_j1w4x"]
 [ext_resource type="Texture2D" uid="uid://4hlvxrqiuafy" path="res://Art/Enemies/Orc.png" id="2_8x117"]
@@ -280,16 +280,37 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1w4x"]
 size = Vector3(0.605103, 0.736465, 0.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xw0u"]
+albedo_color = Color(0.685733, 3.10443e-06, 5.77569e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kapy6"]
+material = SubResource("StandardMaterial3D_3xw0u")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hc3a"]
+albedo_color = Color(0, 0, 0.686275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vumo0"]
+material = SubResource("StandardMaterial3D_6hc3a")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kapy6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hc3a"]
+material = SubResource("StandardMaterial3D_kapy6")
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Orc" type="Area3D" groups=["Enemies", "Orcs"]]
 script = ExtResource("1_j1w4x")
-speed = 5.0
+speed = 6.0
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
 sorting_offset = 10.0
 sprite_frames = SubResource("SpriteFrames_n7jbd")
-animation = &"idle"
+animation = &"attack2"
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 0.0180588, -0.134946)
@@ -335,6 +356,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.140532)
 depth = 0.3
 disabled = true
 polygon = PackedVector2Array(0.991315, -0.156837, 1.04769, -0.301095, 0.90675, -0.408874, 0.758248, -0.406609, 0.179003, -0.0916262)
+
+[node name="PlayerPos" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86267, 0, 0)
+top_level = true
+mesh = SubResource("BoxMesh_kapy6")
+
+[node name="DelayedPlayerPos" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43342, 0, 0)
+top_level = true
+mesh = SubResource("BoxMesh_vumo0")
+
+[node name="Target" type="MeshInstance3D" parent="."]
+top_level = true
+mesh = SubResource("BoxMesh_6hc3a")
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_frame_changed"]
