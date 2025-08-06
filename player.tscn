@@ -376,11 +376,7 @@ sorting_offset = 10.0
 shaded = true
 double_sided = false
 sprite_frames = SubResource("SpriteFrames_bfour")
-animation = &"shoot_aim"
-
-[node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
+animation = &"death"
 
 [node name="Attack1" type="Area3D" parent="." groups=["Weapons"]]
 collision_mask = 0
@@ -427,9 +423,11 @@ polygon = PackedVector2Array(0, 0.109, -0.601764, 0.106919, -0.509837, 0.203601,
 debug_color = Color(0, 1, 0, 0.690196)
 
 [node name="RedCircle" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_onrkg")
 
 [node name="GreenCircle" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_i3pqv")
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

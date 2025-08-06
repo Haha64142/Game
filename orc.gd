@@ -1,4 +1,4 @@
-extends Enemy
+class_name Orc extends Enemy
 
 ## Player position offset time, in 1/100 second units (100 = 1.0s).
 ## The Orc goes to where the player was this amount of time ago
@@ -9,11 +9,11 @@ var dead := false
 
 var player_pos := Vector3.ZERO
 var attacking := false
-var _player_hit_by_attack1 := false
+var player_hit_by_attack1 := false
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
-@onready var _attack1_hitboxes: Array[CollisionPolygon3D] = [
+@onready var attack1_hitboxes: Array[CollisionPolygon3D] = [
 	$"Attack1-0",
 	$"Attack1-1",
 	$"Attack1-2",
@@ -122,7 +122,7 @@ func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 	if hurt or dead:
 		return
 	if attacking:
-		_attack1_hitboxes[$AnimatedSprite3D.frame].set_deferred(
+		attack1_hitboxes[$AnimatedSprite3D.frame].set_deferred(
 				"disabled", true
 		)
 		attacking = false
@@ -149,10 +149,10 @@ func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 
 
 func _hit_player() -> void:
-	if _player_hit_by_attack1:
+	if player_hit_by_attack1:
 		return
 	
-	_player_hit_by_attack1 = true
+	player_hit_by_attack1 = true
 	get_tree().call_group("Player", "_on_hit_by_enemy", self)
 
 
@@ -163,8 +163,8 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 			$AnimatedSprite3D.play("idle")
 		"attack1":
 			attacking = false
-			_player_hit_by_attack1 = false
-			_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
+			player_hit_by_attack1 = false
+			attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
 			$AnimatedSprite3D.play("idle")
 
 
@@ -172,5 +172,5 @@ func _on_animated_sprite_3d_frame_changed() -> void:
 	if $AnimatedSprite3D.animation != "attack1":
 		return
 	
-	_attack1_hitboxes[$AnimatedSprite3D.frame].disabled = false
-	_attack1_hitboxes[$AnimatedSprite3D.frame - 1].disabled = true
+	attack1_hitboxes[$AnimatedSprite3D.frame].disabled = false
+	attack1_hitboxes[$AnimatedSprite3D.frame - 1].disabled = true

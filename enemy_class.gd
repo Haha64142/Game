@@ -1,5 +1,4 @@
-class_name Enemy
-extends Area3D
+class_name Enemy extends Area3D
 ## Class to use for all enemies. It contains methods to handle collisions
 ## 
 ## You must [method initialize] an [Enemy] in [method Node._ready]
@@ -31,7 +30,7 @@ var collisions := {
 	"Arrow": false,
 }
 
-var _hit_by_attack1 := false
+var hit_by_attack1 := false
 
 var hitbox: Node3D
 
@@ -93,7 +92,7 @@ func initialize() -> void:
 ## to be hit by attack1 again. Without the [member _hit_by_attack1] variable,
 ## it would say it was hit each time the player's collision shape changed
 func attack1_finished() -> void:
-	_hit_by_attack1 = false
+	hit_by_attack1 = false
 
 
 func set_enabled(value: bool) -> void:
@@ -185,8 +184,8 @@ func _on_area_shape_entered(_area_rid: RID, area: Area3D,
 	elif area.name == "Attack1" and area.is_in_group("Weapons"):
 		collisions["Attack1Int"] += 1
 		update_collisions_dict()
-		if not _hit_by_attack1:
-			_hit_by_attack1 = true
+		if not hit_by_attack1:
+			hit_by_attack1 = true
 			_handle_hit(Global.AttackType.Attack1, area)
 
 

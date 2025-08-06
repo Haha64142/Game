@@ -3,32 +3,12 @@ extends Node3D
 @export var arrow_scene: PackedScene
 @export var orc_scene: PackedScene
 
-var OrcNode: Area3D
-
 @onready var player = $Player
 
 func _ready() -> void:
 	GameTime.start()
-	OrcNode = orc_scene.instantiate()
 	$OrcSpawnTimer.timeout.emit()
 	$OrcSpawnTimer.start()
-
-
-func _process(_delta: float) -> void:
-	var collision_keys: Array[String] = [
-		"Floor",
-		"Wall",
-		"Player",
-		"Attack1",
-		"Arrow",
-	]
-	var _output := ""
-	for i in collision_keys:
-		if i != "Floor":
-			_output += ", "
-		_output += i + ": " + ("🟩" if $TestEnemy.collisions[i] else "🟥")
-	
-	#print(_output)
 
 
 func _physics_process(delta: float) -> void:
@@ -47,10 +27,25 @@ func _on_player_attack_1_finished() -> void:
 	get_tree().call_group("Enemies", "attack1_finished")
 
 
+func _on_player_player_dead() -> void:
+	get_tree().call_group("Enemies", "queue_free")
+	$OrcSpawnTimer.stop()
+	
+	$MouseTexture.player_dead = true
+	Input.action_press("open_menu")
+	await get_tree().create_timer(1).timeout
+	Input.action_release("open_menu")
+	
+	var death_tween := $DeathScreen.create_tween()
+	$DeathScreen.modulate.a = 0
+	$DeathScreen.show()
+	death_tween.tween_property($DeathScreen, "modulate:a", 0.7, 1)
+
+
 func _on_orc_spawn_timer_timeout() -> void:
-	var Orc: Area3D = OrcNode.duplicate()
+	var OrcNode: Area3D = orc_scene.duplicate().instantiate()
 	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
 	spawn_pos *= randf_range(0.0, 9.0)
-	Orc.position = Vector3(spawn_pos.x,
+	OrcNode.position = Vector3(spawn_pos.x,
 			OrcNode.position.y, spawn_pos.y)
-	add_child(Orc)
+	add_child(OrcNode)

@@ -10,8 +10,8 @@ var power := 1.0 # 0.1 - 1
 var is_stopped := false
 
 # For the speed equation 
-var _speed_slope: float
-var _speed_intercept: float
+var speed_slope: float
+var speed_intercept: float
 
 func _ready() -> void:
 	add_to_group("Arrows", true)
@@ -46,13 +46,13 @@ func shoot(shot_power: float, mouse_pos: Vector2, player_pos: Vector3) -> void:
 	power = shot_power
 	if power < 0.1:
 		power = 0.1
-	speed = _speed_slope * shot_power + _speed_intercept
+	speed = speed_slope * shot_power + speed_intercept
 	position = player_pos
 
 
 func _find_speed_equation() -> void:
-	_speed_slope = (MAX_SPEED - MIN_SPEED) / 0.9
-	_speed_intercept = MAX_SPEED - _speed_slope
+	speed_slope = (MAX_SPEED - MIN_SPEED) / 0.9
+	speed_intercept = MAX_SPEED - speed_slope
 
 
 func _on_body_entered(body: Node3D) -> void:

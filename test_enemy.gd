@@ -4,8 +4,8 @@ extends Enemy
 @export var MIN_SPEED := 2.0
 
 # For the speed equation
-var _speed_slope: float
-var _speed_intercept: float
+var speed_slope: float
+var speed_intercept: float
 
 var move_direction := Vector3.ZERO
 
@@ -28,10 +28,10 @@ func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
 		
 		Global.AttackType.Arrow:
 			move_direction = node.move_direction
-			speed = _speed_slope * node.power + _speed_intercept
+			speed = speed_slope * node.power + speed_intercept
 			print("Hit by Arrow")
 
 
 func _find_speed_equation() -> void:
-	_speed_slope = (MAX_SPEED - MIN_SPEED) / 0.9
-	_speed_intercept = MAX_SPEED - _speed_slope
+	speed_slope = (MAX_SPEED - MIN_SPEED) / 0.9
+	speed_intercept = MAX_SPEED - speed_slope
