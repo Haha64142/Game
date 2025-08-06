@@ -361,15 +361,18 @@ polygon = PackedVector2Array(0.991315, -0.156837, 1.04769, -0.301095, 0.90675, -
 [node name="PlayerPos" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86267, 0, 0)
 top_level = true
+visible = false
 mesh = SubResource("BoxMesh_kapy6")
 
 [node name="DelayedPlayerPos" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43342, 0, 0)
 top_level = true
+visible = false
 mesh = SubResource("BoxMesh_vumo0")
 
 [node name="Target" type="MeshInstance3D" parent="."]
 top_level = true
+visible = false
 mesh = SubResource("BoxMesh_6hc3a")
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
