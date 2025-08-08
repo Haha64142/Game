@@ -1,4 +1,4 @@
-class_name Orc extends Enemy
+extends Enemy
 
 ## Player position offset time, in 1/100 second units (100 = 1.0s).
 ## The Orc goes to where the player was this amount of time ago

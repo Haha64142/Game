@@ -309,9 +309,10 @@ metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shaded = true
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_n7jbd")
-animation = &"attack2"
+animation = &"idle"
 
 [node name="Hitbox" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 0.0180588, -0.134946)

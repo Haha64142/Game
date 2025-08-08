@@ -1,4 +1,5 @@
-class_name Enemy extends Area3D
+class_name Enemy
+extends Area3D
 ## Class to use for all enemies. It contains methods to handle collisions
 ## 
 ## You must [method initialize] an [Enemy] in [method Node._ready]

@@ -2,6 +2,7 @@ extends Node3D
 
 @export var arrow_scene: PackedScene
 @export var orc_scene: PackedScene
+@export var giant_orc_scene: PackedScene
 
 @onready var player = $Player
 
@@ -43,8 +44,13 @@ func _on_player_player_dead() -> void:
 
 
 func _on_orc_spawn_timer_timeout() -> void:
-	var OrcNode: Area3D = orc_scene.duplicate().instantiate()
+	var NewEnemy: Enemy
+	if randi() % 2 == 0:
+		NewEnemy = giant_orc_scene.duplicate().instantiate()
+	else:
+		NewEnemy = orc_scene.duplicate().instantiate()
+
 	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
 	spawn_pos *= randf_range(0.0, 9.0)
-	OrcNode.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
-	add_child(OrcNode)
+	NewEnemy.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
+	add_child(NewEnemy)

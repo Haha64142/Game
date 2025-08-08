@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://oqrta31ulqm3"]
+[gd_scene load_steps=13 format=3 uid="uid://oqrta31ulqm3"]
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
+[ext_resource type="PackedScene" uid="uid://bqr3jfu53suwl" path="res://giant_orc.tscn" id="4_35c7g"]
 [ext_resource type="MeshLibrary" uid="uid://c354m3fvwkgyw" path="res://tile_mesh.tres" id="4_yokb4"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
@@ -29,6 +30,7 @@ font_names = PackedStringArray("Serif")
 script = ExtResource("1_fu4bq")
 arrow_scene = ExtResource("5_fu4bq")
 orc_scene = ExtResource("8_yokb4")
+giant_orc_scene = ExtResource("4_35c7g")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h0wof")
