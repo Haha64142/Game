@@ -46,6 +46,5 @@ func _on_orc_spawn_timer_timeout() -> void:
 	var OrcNode: Area3D = orc_scene.duplicate().instantiate()
 	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
 	spawn_pos *= randf_range(0.0, 9.0)
-	OrcNode.position = Vector3(spawn_pos.x,
-			OrcNode.position.y, spawn_pos.y)
+	OrcNode.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
 	add_child(OrcNode)

@@ -309,7 +309,7 @@ metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
-sorting_offset = 10.0
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_n7jbd")
 animation = &"attack2"
 

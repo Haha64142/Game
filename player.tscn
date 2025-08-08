@@ -372,9 +372,9 @@ shape = SubResource("BoxShape3D_hesjb")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(4.26004, 0, 0, 0, 4.26004, 0, 0, 0, 1, 0, 0, 0)
-sorting_offset = 10.0
 shaded = true
 double_sided = false
+texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_bfour")
 animation = &"death"
 

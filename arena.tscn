@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
-[ext_resource type="MeshLibrary" uid="uid://bgtghpx6o3l13" path="res://tile_mesh.tres" id="1_h0wof"]
 [ext_resource type="PackedScene" uid="uid://c4nqbeam4mpoa" path="res://mouse_texture.tscn" id="2_31bt4"]
 [ext_resource type="Script" uid="uid://cpulhi8qngqxm" path="res://camera_3d.gd" id="2_h0wof"]
+[ext_resource type="MeshLibrary" uid="uid://c354m3fvwkgyw" path="res://tile_mesh.tres" id="4_yokb4"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
 [ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
@@ -38,7 +38,7 @@ navigation_mesh = SubResource("NavigationMesh_pbtuc")
 
 [node name="Floor" type="GridMap" parent="NavigationRegion3D" groups=["Floors"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
-mesh_library = ExtResource("1_h0wof")
+mesh_library = ExtResource("4_yokb4")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 collision_layer = 3
@@ -49,7 +49,7 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Wall" type="GridMap" parent="." groups=["Walls"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
-mesh_library = ExtResource("1_h0wof")
+mesh_library = ExtResource("4_yokb4")
 cell_size = Vector3(1, 1, 1)
 cell_center_z = false
 collision_layer = 3
