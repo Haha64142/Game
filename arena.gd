@@ -12,11 +12,6 @@ func _ready() -> void:
 	$OrcSpawnTimer.start()
 
 
-func _physics_process(delta: float) -> void:
-	get_tree().call_group("Orcs", "set_target_pos", player.prev_positions)
-	get_tree().set_group("Orcs", "player_pos", player.position)
-
-
 func _on_player_arrow_fired(shot_power: float,
 		mouse_pos: Vector2, player_pos: Vector3) -> void:
 	var Arrow: Area3D = arrow_scene.instantiate()
@@ -53,4 +48,5 @@ func _on_orc_spawn_timer_timeout() -> void:
 	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
 	spawn_pos *= randf_range(0.0, 9.0)
 	NewEnemy.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
+	NewEnemy.player = player
 	add_child(NewEnemy)

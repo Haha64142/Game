@@ -3,6 +3,7 @@ extends Enemy
 var hurt := false
 var dead := false
 
+var player: CharacterBody3D
 var player_pos := Vector3.ZERO
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
@@ -17,6 +18,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if hurt or dead:
 		return
+	
+	player_pos = player.position
+	nav_agent.set_target_position(player_pos)
 	
 	if nav_agent.is_navigation_finished():
 		$AnimatedSprite3D.play("idle")
@@ -36,10 +40,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite3D.play("idle")
 	
 	position = position.move_toward(next_path_position, delta * speed)
-
-
-func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
-	nav_agent.set_target_position(player_pos)
 
 
 func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:

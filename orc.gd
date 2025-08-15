@@ -7,7 +7,9 @@ extends Enemy
 var hurt := false
 var dead := false
 
+var player: CharacterBody3D
 var player_pos := Vector3.ZERO
+
 var attacking := false
 var player_hit_by_attack1 := false
 
@@ -32,6 +34,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if attacking or hurt or dead:
 		return
+	
+	set_target_pos(player.prev_positions)
+	player_pos = player.position
 	
 	if position.distance_to(player_pos) <= 0.5:
 		$AnimatedSprite3D.play("attack1")
@@ -97,7 +102,8 @@ func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
 	$Target.visible = Global.display_debug_boxes
 	
 	# Update player circles
-	get_tree().call_group("Player", "update_circles",
+	if Global.display_debug_circles:
+		get_tree().call_group("Player", "update_circles",
 			current_to_delayed_player_distance)
 	
 	nav_agent.set_target_position(target_pos)
