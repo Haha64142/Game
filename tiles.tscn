@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://1huqikm7fvyw"]
+[gd_scene load_steps=92 format=3 uid="uid://1huqikm7fvyw"]
 
 [ext_resource type="Texture2D" uid="uid://bxpwnm3xbbvo7" path="res://Art/Environment/Tiles.png" id="2_d6bvg"]
 
@@ -8,7 +8,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.005, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0bd87"]
@@ -24,8 +25,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.16, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.178, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7osof"]
@@ -41,8 +42,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.08, 0.16, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.178, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y1754"]
@@ -58,8 +59,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.04, 0.12, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.048, 0.135, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6e3qa"]
@@ -75,8 +76,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.12, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.135, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8mo23"]
@@ -92,8 +93,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.08, 0.12, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.135, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gjn3x"]
@@ -109,8 +110,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0.2, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.221, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vra4g"]
@@ -124,8 +125,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.12, 0.2, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.135, 0.221, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_38uyi"]
@@ -139,8 +140,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.12, 0.16, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.135, 0.178, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ryv5w"]
@@ -156,8 +157,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0.16, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.178, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4mq60"]
@@ -171,8 +172,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0.24, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.264, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rkejw"]
@@ -186,8 +187,8 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.12, 0.24, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.135, 0.264, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_658bn"]
@@ -200,8 +201,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.04, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.048, 0.048, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wxgha"]
@@ -216,8 +217,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.048, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d6bvg"]
@@ -232,8 +233,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.08, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.048, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xlp04"]
@@ -248,8 +249,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.2, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.221, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7ivye"]
@@ -259,17 +260,17 @@ orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1754"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxt1b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khnvu"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.2, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.221, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w18sb"]
-material = SubResource("StandardMaterial3D_sxt1b")
+material = SubResource("StandardMaterial3D_khnvu")
 size = Vector2(1, 1)
 orientation = 2
 
@@ -280,8 +281,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.04, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.048, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_srh3t"]
@@ -296,8 +297,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rnsht"]
@@ -312,8 +313,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.08, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_endm6"]
@@ -328,8 +329,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0, 0.24, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.005, 0.264, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hkurt"]
@@ -344,14 +345,23 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.08, 0.24, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.091, 0.264, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sxt1b"]
 material = SubResource("StandardMaterial3D_ryv5w")
 size = Vector2(1, 1)
 orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxt1b"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_d6bvg")
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.221, 0.048, 0)
+texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g5a20"]
 material = SubResource("StandardMaterial3D_sxt1b")
@@ -364,8 +374,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.2, 0, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.221, 0.005, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jygf0"]
@@ -379,8 +389,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.005, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_glg8d"]
@@ -394,8 +404,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.24, 0, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.264, 0.005, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u02i4"]
@@ -409,8 +419,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.048, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tkme"]
@@ -424,8 +434,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.24, 0.04, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.264, 0.048, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d17i1"]
@@ -439,8 +449,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.2, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.221, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_khnvu"]
@@ -454,8 +464,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.16, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.178, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b7lvl"]
@@ -469,8 +479,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_d6bvg")
-uv1_scale = Vector3(0.04, 0.04, 0.04)
-uv1_offset = Vector3(0.24, 0.08, 0)
+uv1_scale = Vector3(0.038, 0.038, 0.038)
+uv1_offset = Vector3(0.264, 0.091, 0)
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6r5al"]
