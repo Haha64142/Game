@@ -52,6 +52,7 @@ Floors=""
 Hitboxes=""
 Weapons=""
 Player=""
+Axes=""
 
 [input]
 

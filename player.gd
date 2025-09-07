@@ -211,6 +211,22 @@ func update_prev_positions() -> void:
 		prev_positions.erase(keys[0])
 
 
+## Gets the position of the player at the specified time.
+## [param target_time] is in 1/100 second units (100 = 1.0s).
+func find_closest_pos_to(target_time: int) -> Vector3:
+	var keys: Array = prev_positions.keys()
+	keys.sort()
+	
+	if keys.has(target_time):
+		return prev_positions[target_time]
+	
+	for key in keys:
+		if key >= target_time:
+			return prev_positions[key]
+	
+	return prev_positions[keys.back()]
+
+
 func get_direction(speed_multiplier: float) -> Vector2:
 	var direction := Vector2.ZERO
 	
@@ -298,7 +314,7 @@ func _on_hit_by_enemy(enemy: Enemy) -> void:
 	damage_taken = enemy.attack_damage
 	change_state(State.Hurt, 2)
 	invincible = 2
-	print("Hit by Enemy")
+	print("Hit by Enemy: ", damage_taken)
 
 
 func _on_animated_sprite_3d_animation_finished() -> void:

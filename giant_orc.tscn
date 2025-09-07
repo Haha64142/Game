@@ -1,7 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://bqr3jfu53suwl"]
+[gd_scene load_steps=50 format=3 uid="uid://bqr3jfu53suwl"]
 
 [ext_resource type="Script" uid="uid://cc28qfwnkqfg3" path="res://giant_orc.gd" id="1_iun8m"]
 [ext_resource type="Texture2D" uid="uid://cgmbap8duyqky" path="res://Art/Enemies/giant orc.png" id="1_qav8e"]
+[ext_resource type="PackedScene" uid="uid://dmwsd68yd06qi" path="res://axe.tscn" id="2_0mp0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iun8m"]
 atlas = ExtResource("1_qav8e")
@@ -181,7 +182,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iun8m")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack1",
 "speed": 1.0
 }, {
@@ -348,10 +349,15 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_qav8e"]
 size = Vector3(0.6, 1.605, 0.6)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm87t"]
+size = Vector3(0.402991, 0.555, 0.302939)
+
 [node name="GiantOrc" type="Area3D" groups=["Enemies", "Orcs"]]
 script = ExtResource("1_iun8m")
+axe_scene = ExtResource("2_0mp0x")
 speed = 2.0
 health = 200
+attack_damage = 50
 metadata/_custom_type_script = "uid://cjblkjl2ji2ii"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -360,11 +366,9 @@ sorting_offset = 10.0
 shaded = true
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_q2map")
-animation = &"spawn"
-frame = 6
-frame_progress = 1.0
+animation = &"attack1"
 
-[node name="Hitbox" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.434292, -0.284723)
 shape = SubResource("BoxShape3D_qav8e")
 
@@ -373,4 +377,14 @@ path_desired_distance = 0.5
 target_desired_distance = 0.5
 path_height_offset = 0.15
 
+[node name="AxeCollision" type="CollisionShape3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0212218, 1.45048, -0.136653)
+shape = SubResource("BoxShape3D_pm87t")
+debug_color = Color(1, 0, 0.0166664, 0.729412)
+
+[node name="AxeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="timeout" from="AxeTimer" to="." method="_on_axe_timer_timeout"]

@@ -8,7 +8,6 @@ extends Node3D
 
 func _ready() -> void:
 	GameTime.start()
-	$OrcSpawnTimer.timeout.emit()
 	$OrcSpawnTimer.start()
 
 

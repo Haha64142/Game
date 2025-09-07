@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmwsd68yd06qi"]
+
+[ext_resource type="Script" uid="uid://cv2nryg2hu007" path="res://axe.gd" id="1_7dw2v"]
+[ext_resource type="Texture2D" uid="uid://tilw434qcfjq" path="res://Art/Enemies/axe.png" id="1_sykeo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dw2v"]
+size = Vector3(0.401367, 0.556885, 0.321838)
+
+[node name="Axe" type="Area3D" groups=["Axes", "Enemies"]]
+top_level = true
+script = ExtResource("1_7dw2v")
+MOVE_SPEED = 15.0
+ROT_SPEED = 6.28319
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0499766, -0.0501067, 0)
+shaded = true
+texture_filter = 2
+texture = ExtResource("1_sykeo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Weapons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0764026, 0.151984, -0.145)
+shape = SubResource("BoxShape3D_7dw2v")
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]

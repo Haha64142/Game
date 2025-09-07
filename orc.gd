@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if attacking or hurt or dead:
 		return
 	
-	set_target_pos(player.prev_positions)
+	set_target_pos()
 	player_pos = player.position
 	
 	if position.distance_to(player_pos) <= 0.5:
@@ -67,10 +67,11 @@ func _physics_process(delta: float) -> void:
 	position = position.move_toward(next_path_position, delta * speed)
 
 
-func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
+func set_target_pos() -> void:
 	# Blue box
-	var delayed_player_pos := find_closest_pos_to(player_prev_pos,
-			int(GameTime.seconds * 100) - chase_delay)
+	var delayed_player_pos: Vector3 = player.find_closest_pos_to(
+			int(GameTime.seconds * 100) - chase_delay
+	)
 	
 	var player_distance := (player_pos - position).length() # Orc -> Red box
 	var current_to_delayed_player_distance := (
@@ -85,8 +86,9 @@ func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
 			target_pos = delayed_player_pos
 		else:
 			var temp_delay = 10 * player_distance
-			target_pos = find_closest_pos_to(player_prev_pos,
-					int(GameTime.seconds * 100) - temp_delay)
+			target_pos = player.find_closest_pos_to(
+					int(GameTime.seconds * 100) - temp_delay
+			)
 			
 	
 	# Red box
@@ -107,21 +109,6 @@ func set_target_pos(player_prev_pos: Dictionary[int, Vector3]) -> void:
 			current_to_delayed_player_distance)
 	
 	nav_agent.set_target_position(target_pos)
-
-
-func find_closest_pos_to(player_prev_pos: Dictionary[int, Vector3],
-		target_time: int) -> Vector3:
-	var keys: Array = player_prev_pos.keys()
-	keys.sort()
-	
-	if keys.has(target_time):
-		return player_prev_pos[target_time]
-	
-	for key in keys:
-		if key >= target_time:
-			return player_prev_pos[key]
-	
-	return player_prev_pos[keys.back()]
 
 
 func _handle_hit(attack: Global.AttackType, node: Node3D) -> void:
