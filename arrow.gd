@@ -3,6 +3,11 @@ extends Area3D
 @export var MAX_SPEED := 25.0
 @export var MIN_SPEED := 10.0
 
+var SCREEN_WIDTH: int = ProjectSettings.get_setting(
+		"display/window/size/viewport_width")
+var SCREEN_HEIGHT: int = ProjectSettings.get_setting(
+		"display/window/size/viewport_height")
+
 var move_direction := Vector3.ZERO
 var speed := 0.0
 var power := 1.0 # 0.1 - 1
@@ -31,7 +36,8 @@ func _physics_process(delta: float) -> void:
 
 func shoot(shot_power: float, mouse_pos: Vector2, player_pos: Vector3) -> void:
 	# get the mouse pos based on the center of the screen
-	var new_mouse_pos := mouse_pos - Vector2(480, 256)
+	var new_mouse_pos := mouse_pos - Vector2(
+			SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 	if new_mouse_pos == Vector2.ZERO:
 		new_mouse_pos = Vector2(1, 0)
 	# multiply by -1 to flip the y-axis to match normal graph cords

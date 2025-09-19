@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkpdn4wh3g58k"]
+
+[ext_resource type="Script" uid="uid://b8u4rjpyumsp8" path="res://main_menu.gd" id="1_7a4el"]
+[ext_resource type="Texture2D" uid="uid://bkhgelukbueox" path="res://Art/UI/main-menu.png" id="1_w0p2i"]
+[ext_resource type="Texture2D" uid="uid://c8pgm7jqfdk5b" path="res://Art/UI/title.png" id="2_7a4el"]
+[ext_resource type="Theme" uid="uid://bcjjqs4t77yku" path="res://theme.tres" id="4_kwhh3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7a4el")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w0p2i")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 45.0
+offset_right = 892.0
+offset_bottom = 154.0
+texture = ExtResource("2_7a4el")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -43.0
+offset_right = 62.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_kwhh3")
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 62
+text = "Play"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

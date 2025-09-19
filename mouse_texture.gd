@@ -14,7 +14,7 @@ var window_modes: Array[DisplayServer.WindowMode] = [
 	#DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN,
 ]
 
-var mouse_sensitivity := 0.9
+var mouse_sensitivity := 1
 
 var player_dead = false
 
@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 			hide()
 			Global.mouse_visible = true
 	
-	if Input.is_action_just_pressed("exit"):
+	if Input.is_action_pressed("exit"):
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("toggle_fullscreen"):

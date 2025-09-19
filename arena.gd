@@ -9,6 +9,7 @@ extends Node3D
 func _ready() -> void:
 	GameTime.start()
 	$OrcSpawnTimer.start()
+	Global.mouse_visible = false
 
 
 func _on_player_arrow_fired(shot_power: float,
@@ -49,3 +50,7 @@ func _on_orc_spawn_timer_timeout() -> void:
 	NewEnemy.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
 	NewEnemy.player = player
 	add_child(NewEnemy)
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")

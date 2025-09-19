@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oqrta31ulqm3"]
+[gd_scene load_steps=14 format=3 uid="uid://oqrta31ulqm3"]
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
 [ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
+[ext_resource type="Theme" uid="uid://bcjjqs4t77yku" path="res://theme.tres" id="10_n068f"]
 
 [sub_resource type="Environment" id="Environment_h0wof"]
 background_mode = 1
@@ -127,26 +128,41 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DeathText" type="Label" parent="DeathScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.5
-offset_top = -11.5
-offset_right = 34.5
-offset_bottom = 11.5
+offset_left = -143.5
+offset_top = -42.0
+offset_right = 143.5
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="DeathText" type="Label" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_yokb4")
 theme_override_font_sizes/font_size = 75
 text = "You Died"
 
+[node name="MainMenuButton" type="Button" parent="DeathScreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("10_n068f")
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 27
+text = "Main Menu"
+
 [connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="timeout" from="OrcSpawnTimer" to="." method="_on_orc_spawn_timer_timeout"]
+[connection signal="pressed" from="DeathScreen/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

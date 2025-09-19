@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Random Game"
-run/main_scene="res://arena.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="uid://bkpdn4wh3g58k"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.2, 0.2, 0.2, 1)
 boot_splash/image="res://logo.png"
 config/icon="res://logo.png"
@@ -34,7 +34,7 @@ gdscript/warnings/integer_division=0
 [display]
 
 window/size/viewport_width=960
-window/size/viewport_height=512
+window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 
 [editor]
@@ -122,3 +122,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 textures/lossless_compression/force_png=true
+environment/defaults/default_clear_color=Color(0.0627451, 0.0627451, 0.054902, 1)
