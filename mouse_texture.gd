@@ -7,13 +7,6 @@ var SCREEN_HEIGHT: int = ProjectSettings.get_setting(
 var scale_factor := Vector2(1.0, 1.0)
 var offset := Vector2(0, 0)
 
-var window_mode: int = 0
-var window_modes: Array[DisplayServer.WindowMode] = [
-	DisplayServer.WINDOW_MODE_WINDOWED,
-	DisplayServer.WINDOW_MODE_MAXIMIZED,
-	#DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN,
-]
-
 var mouse_sensitivity := 1
 
 var player_dead = false
@@ -46,16 +39,6 @@ func _process(_delta: float) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			hide()
 			Global.mouse_visible = true
-	
-	if Input.is_action_pressed("exit"):
-		get_tree().quit()
-	
-	if Input.is_action_just_pressed("toggle_fullscreen"):
-		if (window_modes.has(DisplayServer.window_get_mode())):
-			window_mode = window_modes.find(DisplayServer.window_get_mode())
-		window_mode += 1
-		window_mode %= window_modes.size()
-		DisplayServer.window_set_mode(window_modes[window_mode])
 
 
 func _unhandled_input(event: InputEvent) -> void:
