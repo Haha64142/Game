@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3f21ee66cpxw"]
+
+[ext_resource type="Texture2D" uid="uid://ce2dogwqowimd" path="res://Art/UI/settings-background.png" id="1_x2hje"]
+[ext_resource type="Theme" uid="uid://y3hyrcokij6d" path="res://theme.tres" id="2_nkug2"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_x2hje")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nkug2")
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainerLeft"]
+layout_mode = 2
+
+[node name="HScrollBar" type="HScrollBar" parent="MarginContainer/HBoxContainer/VBoxContainerLeft/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 200.0
+page = 5.0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainerLeft/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Mouse Sensitivity: 100%"
+horizontal_alignment = 1
+
+[node name="VBoxContainerR" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
