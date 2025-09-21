@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
 [ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
-[ext_resource type="Theme" uid="uid://bcjjqs4t77yku" path="res://theme.tres" id="10_n068f"]
+[ext_resource type="Theme" uid="uid://y3hyrcokij6d" path="res://theme.tres" id="10_n068f"]
 
 [sub_resource type="Environment" id="Environment_h0wof"]
 background_mode = 1
@@ -157,6 +157,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("10_n068f")
+theme_type_variation = &"PrimaryButton"
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 27
 text = "Main Menu"
