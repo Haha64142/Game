@@ -14,6 +14,10 @@ extends MarginContainer
 ## built-in methods, and methods defined in this node. You can use the
 ## [method value] variable inside the expression.
 @export_multiline var label_text := "Value: {value}"
+## The name of the setting being changed.
+## [br][br]
+## [b]Note:[/b] This must be a variable that exists the the global Settings node
+@export var setting_name := ""
 ## The amount to scroll with the mouse wheel. Scrolling down will subtract the
 ## value and scrolling up will add the value.
 ## [br][br]
@@ -22,7 +26,6 @@ extends MarginContainer
 @export var min_value := 0.0
 @export var max_value := 100.0
 @export var step := 0.0
-@export var start_value := 0.0
 ## The grabber's actual length is the [ScrollBar]'s size multiplied by
 ## [method grabber_size] over the difference between [method min_value] and
 ## [method max_value]
@@ -42,12 +45,12 @@ func _ready() -> void:
 	scroll_bar.min_value = min_value
 	scroll_bar.max_value = max_value + grabber_size
 	scroll_bar.step = step
-	scroll_bar.value = start_value
 	scroll_bar.page = grabber_size
+	scroll_bar.value = Settings.get(setting_name)
 	scroll_bar.gui_input.connect(_on_h_scroll_bar_gui_input)
 	scroll_bar.value_changed.connect(_on_h_scroll_bar_value_changed)
 	parse_label_text()
-	_on_h_scroll_bar_value_changed(start_value)
+	_on_h_scroll_bar_value_changed(scroll_bar.value)
 
 
 func parse_label_text() -> void:
@@ -78,9 +81,12 @@ func parse_label_text() -> void:
 
 func _on_h_scroll_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			scroll_bar.ratio = (event.global_position.x
-					- scroll_bar.global_position.x) / scroll_bar.size.x
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				scroll_bar.ratio = (event.global_position.x
+						- scroll_bar.global_position.x) / scroll_bar.size.x
+			else:
+				Settings.set(setting_name, scroll_bar.value)
 		elif (event.button_index == MOUSE_BUTTON_WHEEL_UP
 				or event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
 			var speed_modifier := 1.0
@@ -91,6 +97,7 @@ func _on_h_scroll_bar_gui_input(event: InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				speed_modifier *= -1
 			scroll_bar.ratio += scroll_percentage / 2 * speed_modifier
+			Settings.set(setting_name, scroll_bar.value)
 			accept_event()
 
 

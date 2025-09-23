@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://dgtj5rgrepgm3" path="res://settings_scroll_bar.gd" id="1_tjm7w"]
 
 [node name="SettingsScrollBar" type="MarginContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.5
+offset_right = 115.5
+offset_bottom = 28.0
+grow_horizontal = 2
 script = ExtResource("1_tjm7w")
-label_text = "Mouse Sensitivity: {int(round(value*100))}%"
-scroll_amount = 0.1
-max_value = 2.0
-start_value = 1.0
-grabber_size = 0.05
 
 [node name="HScrollBar" type="HScrollBar" parent="."]
 layout_mode = 2

@@ -1,6 +1,8 @@
 [gd_resource type="Theme" load_steps=14 format=3 uid="uid://y3hyrcokij6d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwhh3"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 draw_center = false
 border_width_left = 3
 border_width_top = 3
@@ -17,6 +19,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sclt"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.26666668, 0.31764707, 0.31764707, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -24,6 +28,8 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywh4s"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.19607843, 0.23529412, 0.24705882, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -31,6 +37,8 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ue4rx"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.14901961, 0.18431373, 0.19215687, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -107,6 +115,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmy58"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 draw_center = false
 border_width_left = 3
 border_width_top = 3
@@ -123,6 +133,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3icv2"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.25490198, 0.6313726, 0.62352943, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -130,6 +142,8 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvfgn"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.15294118, 0.5647059, 0.5411765, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -137,6 +151,8 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyyno"]
+content_margin_left = 20.0
+content_margin_right = 20.0
 bg_color = Color(0.08235294, 0.44705883, 0.42745098, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
