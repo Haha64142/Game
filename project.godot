@@ -21,6 +21,7 @@ config/icon="res://logo.png"
 
 Global="*res://global.gd"
 GameTime="*res://game_time.gd"
+Settings="*res://settings.gd"
 
 [debug]
 

@@ -7,8 +7,6 @@ var SCREEN_HEIGHT: int = ProjectSettings.get_setting(
 var scale_factor := Vector2(1.0, 1.0)
 var offset := Vector2(0, 0)
 
-var mouse_sensitivity := 1
-
 var player_dead = false
 
 func _ready() -> void:
@@ -47,6 +45,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			position = get_viewport().get_mouse_position()
 		else:
 			position += (event.screen_relative
-					* mouse_sensitivity / scale_factor)
+					* Settings.mouse_sensitivity / scale_factor)
 			position.x = clamp(position.x, 0, SCREEN_WIDTH)
 			position.y = clamp(position.y, 0, SCREEN_HEIGHT)

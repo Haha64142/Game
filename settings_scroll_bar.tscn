@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://co2e24c2rsqvk"]
+
+[ext_resource type="Script" uid="uid://dgtj5rgrepgm3" path="res://settings_scroll_bar.gd" id="1_tjm7w"]
+
+[node name="SettingsScrollBar" type="MarginContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.5
+offset_right = 115.5
+offset_bottom = 28.0
+grow_horizontal = 2
+script = ExtResource("1_tjm7w")
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 2.0
+page = 0.05
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.75000006)
+theme_override_font_sizes/font_size = 20
+text = "Mouse Sensitivity: 100%"
+horizontal_alignment = 1
