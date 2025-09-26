@@ -12,7 +12,6 @@ enum State {
 	Attack1,
 	ShootAim,
 	ShootFire,
-	Paused,
 }
 
 enum AttackType {
@@ -161,9 +160,6 @@ func _process(delta: float) -> void:
 				var shot_power = min(shot_timer / 0.7, 1)
 				arrow_fired.emit(shot_power, Global.mouse_pos, position)
 				$AnimatedSprite3D.play("shoot_fire")
-		
-		State.Paused:
-			pass
 	
 	prev_state = state
 	if state_changed:

@@ -20,23 +20,33 @@ func _process(_delta: float) -> void:
 	offset = (Vector2(DisplayServer.window_get_size())
 			- get_viewport_rect().size * scale_factor) / 2
 	Global.mouse_pos = position
-	if Input.is_action_just_pressed("open_menu"):
-		if not player_dead:
-			if Global.mouse_visible:
-				position = get_viewport().get_mouse_position()
-				position.x = clamp(position.x, 0, SCREEN_WIDTH)
-				position.y = clamp(position.y, 0, SCREEN_HEIGHT)
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				show()
-			else:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				Input.warp_mouse(position * scale_factor + offset)
-				hide()
-			Global.mouse_visible = !Global.mouse_visible
+
+
+func toggle_mouse() -> void:
+	if not player_dead:
+		if Global.mouse_visible:
+			hide_mouse()
 		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			hide()
-			Global.mouse_visible = true
+			show_mouse(false)
+	else:
+		show_mouse(true)
+
+
+func show_mouse(center: bool) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if not center:
+		Input.warp_mouse(position * scale_factor + offset)
+	hide()
+	Global.mouse_visible = true
+
+
+func hide_mouse() -> void:
+	position = get_viewport().get_mouse_position()
+	position.x = clamp(position.x, 0, SCREEN_WIDTH)
+	position.y = clamp(position.y, 0, SCREEN_HEIGHT)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	show()
+	Global.mouse_visible = false
 
 
 func _unhandled_input(event: InputEvent) -> void:

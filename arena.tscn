@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oqrta31ulqm3"]
+[gd_scene load_steps=15 format=3 uid="uid://oqrta31ulqm3"]
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqr3jfu53suwl" path="res://giant_orc.tscn" id="4_35c7g"]
 [ext_resource type="MeshLibrary" uid="uid://mo1ud1cw2078" path="res://tile_mesh.tres" id="5_35c7g"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
+[ext_resource type="PackedScene" uid="uid://chxbwguhqngq8" path="res://pause_menu.tscn" id="5_g8a64"]
 [ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
 [ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
 [ext_resource type="Theme" uid="uid://y3hyrcokij6d" path="res://theme.tres" id="10_n068f"]
@@ -32,6 +33,9 @@ script = ExtResource("1_fu4bq")
 arrow_scene = ExtResource("5_fu4bq")
 orc_scene = ExtResource("8_yokb4")
 giant_orc_scene = ExtResource("4_35c7g")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_g8a64")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h0wof")
@@ -162,6 +166,7 @@ theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 27
 text = "Main Menu"
 
+[connection signal="paused_changed" from="PauseMenu" to="." method="_on_pause_menu_paused_changed"]
 [connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]

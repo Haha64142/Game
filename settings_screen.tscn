@@ -71,10 +71,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BackButton" type="Button" parent="MarginContainer"]
+z_index = 1
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_type_variation = &"PrimaryButton"
 theme_override_font_sizes/font_size = 50
-text = "Return to Main Menu"
+text = "Back"
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -25,6 +25,10 @@ var player_pos := Vector3.ZERO
 
 var player_damages: Dictionary[AttackType, int]
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func _process(delta: float) -> void:
 	if use_global_shortcuts:
 		if Input.is_action_pressed("exit"):

@@ -6,10 +6,20 @@ extends Node3D
 
 @onready var player = $Player
 
+var player_dead = false
+
 func _ready() -> void:
 	GameTime.start()
 	$OrcSpawnTimer.start()
 	Global.mouse_visible = false
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause") and not player_dead:
+		get_tree().paused = true
+		$MouseTexture.show_mouse(false)
+		$Player/Camera3D.reset_pos()
+		$PauseMenu.show()
 
 
 func _on_player_arrow_fired(shot_power: float,
@@ -27,10 +37,9 @@ func _on_player_player_dead() -> void:
 	get_tree().call_group("Enemies", "queue_free")
 	$OrcSpawnTimer.stop()
 	
+	player_dead = true
 	$MouseTexture.player_dead = true
-	Input.action_press("open_menu")
-	await get_tree().create_timer(1).timeout
-	Input.action_release("open_menu")
+	$MouseTexture.show_mouse(false)
 	
 	var death_tween := $DeathScreen.create_tween()
 	$DeathScreen.modulate.a = 0
@@ -54,3 +63,8 @@ func _on_orc_spawn_timer_timeout() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_pause_menu_paused_changed(paused: bool) -> void:
+	if not paused:
+		$MouseTexture.hide_mouse()
