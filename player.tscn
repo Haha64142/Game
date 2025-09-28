@@ -1,6 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://chd8hg2hn5spl"]
+[gd_scene load_steps=51 format=3 uid="uid://chd8hg2hn5spl"]
 
 [ext_resource type="Script" uid="uid://beia2lpkc7h56" path="res://player.gd" id="1_p6a14"]
+[ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cnjvbfeithmyc" path="res://Art/Player/Soldier.png" id="2_onrkg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
@@ -365,6 +366,7 @@ height = 0.1
 disable_mode = 2
 script = ExtResource("1_p6a14")
 health = 200
+arrow_scene = ExtResource("2_i3pqv")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
 transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.00127029, 0.0873618, -0.131)

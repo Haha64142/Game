@@ -7,8 +7,6 @@ var SCREEN_HEIGHT: int = ProjectSettings.get_setting(
 var scale_factor := Vector2(1.0, 1.0)
 var offset := Vector2(0, 0)
 
-var player_dead = false
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	position = get_viewport().get_mouse_position()
@@ -23,7 +21,7 @@ func _process(_delta: float) -> void:
 
 
 func toggle_mouse() -> void:
-	if not player_dead:
+	if not Global.player_dead:
 		if Global.mouse_visible:
 			hide_mouse()
 		else:

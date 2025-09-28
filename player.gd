@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-signal arrow_fired(shot_power: float, mouse_pos: Vector2, spawn_pos: Vector3)
-signal attack1_finished()
 signal player_dead()
 
 enum State {
@@ -36,6 +34,9 @@ enum AttackType {
 @export var DECELERATION_SPEED := 50.0
 @export var GRAVITY := 25.0
 @export var TERMINAL_VELOCITY := 50.0
+
+@export_group("Packed Scenes")
+@export var arrow_scene: PackedScene
 
 var prev_state := State.Idle
 var state := State.Idle
@@ -123,6 +124,7 @@ func _process(delta: float) -> void:
 				$AnimatedSprite3D.play("death")
 				player_dead.emit()
 				dead = true
+				Global.player_dead = true
 		
 		State.Attack1:
 			update_common_vars(delta)
@@ -157,8 +159,10 @@ func _process(delta: float) -> void:
 			move(delta)
 			
 			if prev_state != State.ShootFire:
-				var shot_power = min(shot_timer / 0.7, 1)
-				arrow_fired.emit(shot_power, Global.mouse_pos, position)
+				var Arrow: Area3D = arrow_scene.instantiate()
+				add_child(Arrow)
+				Arrow.shoot(min(shot_timer / 0.7, 1),
+						Global.mouse_pos, global_position)
 				$AnimatedSprite3D.play("shoot_fire")
 	
 	prev_state = state
@@ -317,7 +321,7 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 	match $AnimatedSprite3D.animation:
 		"attack1":
 			attack1_hitboxes[$AnimatedSprite3D.frame].disabled = true
-			attack1_finished.emit()
+			get_tree().call_group("Enemies", "attack1_finished")
 			change_state(State.Idle, 0)
 		
 		"shoot_fire":

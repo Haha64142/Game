@@ -7,6 +7,7 @@
 size = Vector3(0.72, 0.2, 0.2)
 
 [node name="Arrow" type="Area3D" groups=["Arrows", "Weapons"]]
+top_level = true
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

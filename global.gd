@@ -17,11 +17,13 @@ var window_modes: Array[DisplayServer.WindowMode] = [
 ]
 
 var use_global_shortcuts := true
+var can_pause := true
 
 var mouse_pos := Vector2.ZERO
 var respawn_pos := Vector3(0, 1, 0)
 var mouse_visible := false
 var player_pos := Vector3.ZERO
+var player_dead := false
 
 var player_damages: Dictionary[AttackType, int]
 
