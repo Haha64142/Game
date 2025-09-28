@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://oqrta31ulqm3"]
+[gd_scene load_steps=13 format=3 uid="uid://oqrta31ulqm3"]
 
 [ext_resource type="PackedScene" uid="uid://chd8hg2hn5spl" path="res://player.tscn" id="1_8pfjq"]
 [ext_resource type="Script" uid="uid://b0omqbty03wh4" path="res://arena.gd" id="1_fu4bq"]
@@ -8,9 +8,8 @@
 [ext_resource type="MeshLibrary" uid="uid://mo1ud1cw2078" path="res://tile_mesh.tres" id="5_35c7g"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="5_fu4bq"]
 [ext_resource type="PackedScene" uid="uid://chxbwguhqngq8" path="res://pause_menu.tscn" id="5_g8a64"]
-[ext_resource type="PackedScene" uid="uid://d3cqvxucggx7m" path="res://test_enemy.tscn" id="7_pbtuc"]
 [ext_resource type="PackedScene" uid="uid://3cmnpsfgnrb3" path="res://orc.tscn" id="8_yokb4"]
-[ext_resource type="Theme" uid="uid://y3hyrcokij6d" path="res://theme.tres" id="10_n068f"]
+[ext_resource type="PackedScene" uid="uid://52f10guo0cee" path="res://death_screen.tscn" id="11_g8a64"]
 
 [sub_resource type="Environment" id="Environment_h0wof"]
 background_mode = 1
@@ -25,17 +24,11 @@ sample_partition_type = 2
 agent_height = 0.5
 edge_max_error = 0.1
 
-[sub_resource type="SystemFont" id="SystemFont_yokb4"]
-font_names = PackedStringArray("Serif")
-
 [node name="Arena" type="Node3D"]
 script = ExtResource("1_fu4bq")
 arrow_scene = ExtResource("5_fu4bq")
 orc_scene = ExtResource("8_yokb4")
 giant_orc_scene = ExtResource("4_35c7g")
-
-[node name="PauseMenu" parent="." instance=ExtResource("5_g8a64")]
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h0wof")
@@ -75,100 +68,20 @@ size = 10.0
 near = 0.001
 script = ExtResource("2_h0wof")
 
-[node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
-
-[node name="Center" type="Line2D" parent="."]
-visible = false
-position = Vector2(480, 256)
-points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
-closed = true
-width = 1.0
-
-[node name="Right" type="Line2D" parent="."]
-visible = false
-position = Vector2(640, 256)
-points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
-closed = true
-width = 1.0
-
-[node name="Bottom" type="Line2D" parent="."]
-visible = false
-position = Vector2(480, 341)
-points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
-closed = true
-width = 1.0
-
-[node name="Ring" type="Line2D" parent="."]
-visible = false
-position = Vector2(480, 256)
-points = PackedVector2Array(-160, -85, -160, 85, 160, 85, 160, -85)
-closed = true
-width = 3.0
-
-[node name="TestEnemy" parent="." instance=ExtResource("7_pbtuc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
-enabled = false
-
 [node name="OrcSpawnTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 5.0
 
-[node name="DeathScreen" type="Control" parent="."]
+[node name="DeathScreen" parent="." instance=ExtResource("11_g8a64")]
 visible = false
-modulate = Color(1, 1, 1, 0.7)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="DeathRect" type="ColorRect" parent="DeathScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="PauseMenu" parent="." instance=ExtResource("5_g8a64")]
+visible = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -143.5
-offset_top = -42.0
-offset_right = 143.5
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
+[node name="MouseTexture" parent="." instance=ExtResource("2_31bt4")]
 
-[node name="DeathText" type="Label" parent="DeathScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_yokb4")
-theme_override_font_sizes/font_size = 75
-text = "You Died"
-
-[node name="MainMenuButton" type="Button" parent="DeathScreen/VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("10_n068f")
-theme_type_variation = &"PrimaryButton"
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 27
-text = "Main Menu"
-
-[connection signal="paused_changed" from="PauseMenu" to="." method="_on_pause_menu_paused_changed"]
 [connection signal="arrow_fired" from="Player" to="." method="_on_player_arrow_fired"]
 [connection signal="attack1_finished" from="Player" to="." method="_on_player_attack_1_finished"]
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="timeout" from="OrcSpawnTimer" to="." method="_on_orc_spawn_timer_timeout"]
-[connection signal="pressed" from="DeathScreen/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="paused_changed" from="PauseMenu" to="." method="_on_pause_menu_paused_changed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://52f10guo0cee"]
+
+[ext_resource type="Script" uid="uid://iqi6vet02c7e" path="res://death_screen.gd" id="1_ex68u"]
+[ext_resource type="Theme" uid="uid://y3hyrcokij6d" path="res://theme.tres" id="1_if853"]
+
+[sub_resource type="SystemFont" id="SystemFont_yokb4"]
+font_names = PackedStringArray("Serif")
+subpixel_positioning = 0
+
+[node name="DeathScreen" type="Control"]
+modulate = Color(1, 1, 1, 0.7)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ex68u")
+
+[node name="DeathRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.5
+offset_top = -42.0
+offset_right = 143.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="DeathText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_yokb4")
+theme_override_font_sizes/font_size = 75
+text = "You Died"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_if853")
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 43
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
