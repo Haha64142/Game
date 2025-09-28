@@ -4,9 +4,10 @@ extends Node3D
 @export var orc_scene: PackedScene
 @export var giant_orc_scene: PackedScene
 
-@onready var player = $Player
+var player_dead := false
 
-var player_dead = false
+@onready var player: CharacterBody3D = $Player
+@onready var nav_map_rid: RID = $NavigationRegion3D.get_navigation_map()
 
 func _ready() -> void:
 	GameTime.start()
@@ -53,16 +54,15 @@ func _on_orc_spawn_timer_timeout() -> void:
 		NewEnemy = giant_orc_scene.duplicate().instantiate()
 	else:
 		NewEnemy = orc_scene.duplicate().instantiate()
-
-	var spawn_pos = Vector2.from_angle(randf_range(0.0, 2 * PI))
-	spawn_pos *= randf_range(0.0, 9.0)
-	NewEnemy.position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
+	
+	var spawn_pos := NavigationServer3D.map_get_random_point(
+			nav_map_rid,
+			1,
+			true
+	)
 	NewEnemy.player = player
 	add_child(NewEnemy)
-
-
-func _on_main_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	NewEnemy.global_position = Vector3(spawn_pos.x, 0.8, spawn_pos.y)
 
 
 func _on_pause_menu_paused_changed(paused: bool) -> void:
