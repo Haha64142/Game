@@ -34,8 +34,16 @@ func _on_resume_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	ChildScreen = settings_screen.instantiate()
 	add_child(ChildScreen)
+	ChildScreen.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	
+	focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
 
 
 func _on_exit_button_pressed() -> void:
 	resume()
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_child_exiting_tree(node: Node) -> void:
+	if node == ChildScreen:
+		focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED

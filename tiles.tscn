@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://1huqikm7fvyw"]
+[gd_scene load_steps=94 format=3 uid="uid://1huqikm7fvyw"]
 
 [ext_resource type="Texture2D" uid="uid://bxpwnm3xbbvo7" path="res://Art/Environment/Tiles.png" id="2_d6bvg"]
 
@@ -15,7 +15,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_0bd87"]
 material = SubResource("StandardMaterial3D_7h0kd")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6t24"]
 
@@ -32,7 +31,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_7osof"]
 material = SubResource("StandardMaterial3D_d6bvg")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6bvg"]
 
@@ -49,7 +47,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_y1754"]
 material = SubResource("StandardMaterial3D_7ivye")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ivye"]
 
@@ -66,7 +63,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_6e3qa"]
 material = SubResource("StandardMaterial3D_vra4g")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vra4g"]
 
@@ -83,7 +79,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_8mo23"]
 material = SubResource("StandardMaterial3D_xlp04")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlp04"]
 
@@ -100,7 +95,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_gjn3x"]
 material = SubResource("StandardMaterial3D_341ea")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_341ea"]
 
@@ -117,7 +111,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_vra4g"]
 material = SubResource("StandardMaterial3D_srh3t")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7osof"]
 transparency = 2
@@ -132,7 +125,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_38uyi"]
 material = SubResource("StandardMaterial3D_7osof")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnsht"]
 transparency = 2
@@ -147,7 +139,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_ryv5w"]
 material = SubResource("StandardMaterial3D_rnsht")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjn3x"]
 
@@ -164,7 +155,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_4mq60"]
 material = SubResource("StandardMaterial3D_y1754")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_endm6"]
 transparency = 2
@@ -179,7 +169,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_rkejw"]
 material = SubResource("StandardMaterial3D_endm6")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e3qa"]
 transparency = 2
@@ -194,7 +183,6 @@ texture_filter = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_658bn"]
 material = SubResource("StandardMaterial3D_6e3qa")
 size = Vector2(1, 1)
-orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w18sb"]
 transparency = 2
@@ -492,262 +480,298 @@ size = Vector2(1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6t24"]
 render_priority = -1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0)
+albedo_color = Color(0.0627451, 0.0627451, 0.05490196, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d6bvg"]
 material = SubResource("StandardMaterial3D_k6t24")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkejw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3d4t"]
+render_priority = -1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.49)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7h0kd"]
+material = SubResource("StandardMaterial3D_a3d4t")
+
 [node name="Tiles" type="Node3D"]
 
-[node name="Walls" type="Node3D" parent="."]
+[node name="Edge" type="Node3D" parent="."]
 
-[node name="WallEdgeBottom" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeBottom" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_0bd87")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottom"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeBottom"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottom/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeBottom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_k6t24")
 
-[node name="WallEdgeBottomLeft" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeBottomLeft" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_7osof")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomLeft"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeBottomLeft"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomLeft/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeBottomLeft/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_d6bvg")
 
-[node name="WallEdgeBottomRight" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeBottomRight" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_y1754")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomRight"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeBottomRight"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomRight/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeBottomRight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_7ivye")
 
-[node name="WallEdgeTop" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeTop" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_6e3qa")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTop"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeTop"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTop/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeTop/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_vra4g")
 
-[node name="WallEdgeTopLeft" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeTopLeft" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_8mo23")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopLeft"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeTopLeft"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopLeft/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeTopLeft/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_xlp04")
 
-[node name="WallEdgeTopRight" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeTopRight" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_gjn3x")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopRight"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeTopRight"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopRight/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeTopRight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_341ea")
 
-[node name="WallEdgeLeft" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeLeft" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_vra4g")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeLeft"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeLeft"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeLeft/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeLeft/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_341ea")
 
-[node name="WallEdgeRight" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeRight" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_38uyi")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeRight"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeRight"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeRight/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeRight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_341ea")
 
-[node name="WallEdgeBottomRightConnecter" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeBottomRightConnecter" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_ryv5w")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomRightConnecter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeBottomRightConnecter"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomRightConnecter/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeBottomRightConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gjn3x")
 
-[node name="WallEdgeBottomLeftConnecter" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeBottomLeftConnecter" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_4mq60")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeBottomLeftConnecter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeBottomLeftConnecter"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeBottomLeftConnecter/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeBottomLeftConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gjn3x")
 
-[node name="WallEdgeTopLeftConnecter" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeTopLeftConnecter" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_rkejw")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopLeftConnecter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeTopLeftConnecter"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopLeftConnecter/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeTopLeftConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gjn3x")
 
-[node name="WallEdgeTopRightConnecter" type="MeshInstance3D" parent="Walls"]
+[node name="EdgeTopRightConnecter" type="MeshInstance3D" parent="Edge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_658bn")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallEdgeTopRightConnecter"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Edge/EdgeTopRightConnecter"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallEdgeTopRightConnecter/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Edge/EdgeTopRightConnecter/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gjn3x")
 
-[node name="Wall" type="MeshInstance3D" parent="Walls"]
+[node name="Wall" type="Node3D" parent="."]
+
+[node name="Wall" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_wxgha")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/Wall"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/Wall/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_srh3t")
 
-[node name="WallLeftJoined" type="MeshInstance3D" parent="Walls"]
+[node name="WallLeftJoined" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_d6bvg")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallLeftJoined"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallLeftJoined"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallLeftJoined/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallLeftJoined/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_7osof")
 
-[node name="WallRightJoined" type="MeshInstance3D" parent="Walls"]
+[node name="WallRightJoined" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_xlp04")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallRightJoined"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallRightJoined"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallRightJoined/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallRightJoined/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_rnsht")
 
-[node name="WallLeftSeperate" type="MeshInstance3D" parent="Walls"]
+[node name="WallLeftSeperate" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_7ivye")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallLeftSeperate"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallLeftSeperate"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallLeftSeperate/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallLeftSeperate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_y1754")
 
-[node name="WallRightSeperate" type="MeshInstance3D" parent="Walls"]
+[node name="WallRightSeperate" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_w18sb")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallRightSeperate"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallRightSeperate"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallRightSeperate/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallRightSeperate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_endm6")
 
-[node name="WallBottom" type="MeshInstance3D" parent="Walls"]
+[node name="WallBottom" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_srh3t")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBottom"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallBottom"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBottom/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallBottom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_6e3qa")
 
-[node name="WallBottomLeftJoined" type="MeshInstance3D" parent="Walls"]
+[node name="WallBottomLeftJoined" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_rnsht")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBottomLeftJoined"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallBottomLeftJoined"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBottomLeftJoined/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallBottomLeftJoined/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_w18sb")
 
-[node name="WallBottomRightJoined" type="MeshInstance3D" parent="Walls"]
+[node name="WallBottomRightJoined" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_endm6")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBottomRightJoined"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallBottomRightJoined"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBottomRightJoined/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallBottomRightJoined/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_8mo23")
 
-[node name="WallBottomLeftSeperate" type="MeshInstance3D" parent="Walls"]
+[node name="WallBottomLeftSeperate" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_hkurt")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBottomLeftSeperate"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallBottomLeftSeperate"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBottomLeftSeperate/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallBottomLeftSeperate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_hkurt")
 
-[node name="WallBottomRightSeperate" type="MeshInstance3D" parent="Walls"]
+[node name="WallBottomRightSeperate" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 mesh = SubResource("PlaneMesh_sxt1b")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBottomRightSeperate"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall/WallBottomRightSeperate"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBottomRightSeperate/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/WallBottomRightSeperate/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_gjn3x")
 
 [node name="Floor" type="Node3D" parent="."]
 
 [node name="FloorCenter" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_g5a20")
 skeleton = NodePath("../..")
@@ -759,6 +783,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_sxt1b")
 
 [node name="FloorTop" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_jygf0")
 skeleton = NodePath("../..")
@@ -770,6 +795,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_wxgha")
 
 [node name="FloorTopLeft" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_glg8d")
 skeleton = NodePath("../..")
@@ -781,6 +807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_g5a20")
 
 [node name="FloorTopRight" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_u02i4")
 skeleton = NodePath("../..")
@@ -792,6 +819,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_38uyi")
 
 [node name="FloorLeft" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_8tkme")
 skeleton = NodePath("../..")
@@ -803,6 +831,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_jygf0")
 
 [node name="FloorRight" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_d17i1")
 skeleton = NodePath("../..")
@@ -814,6 +843,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_ryv5w")
 
 [node name="FloorBottom" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_khnvu")
 skeleton = NodePath("../..")
@@ -825,6 +855,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_glg8d")
 
 [node name="FloorBottomLeft" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_b7lvl")
 skeleton = NodePath("../..")
@@ -836,6 +867,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4mq60")
 
 [node name="FloorBottomRight" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 mesh = SubResource("PlaneMesh_6r5al")
 skeleton = NodePath("../..")
@@ -848,14 +880,24 @@ shape = SubResource("BoxShape3D_u02i4")
 
 [node name="Misc" type="Node3D" parent="."]
 
-[node name="PlaceHolder" type="MeshInstance3D" parent="Misc"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+[node name="Cube" type="MeshInstance3D" parent="Misc"]
 visible = false
 layers = 3
 mesh = SubResource("BoxMesh_d6bvg")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Misc/PlaceHolder"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Misc/Cube"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/PlaceHolder/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Cube/StaticBody3D"]
+shape = SubResource("BoxShape3D_rkejw")
+
+[node name="CubeCollision" type="MeshInstance3D" parent="Misc"]
+visible = false
+layers = 3
+mesh = SubResource("BoxMesh_7h0kd")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Misc/CubeCollision"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/CubeCollision/StaticBody3D"]
 shape = SubResource("BoxShape3D_rkejw")

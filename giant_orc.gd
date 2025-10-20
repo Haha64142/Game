@@ -9,7 +9,6 @@ var attack := false
 var stop_movement := false
 
 var player: CharacterBody3D
-var player_pos := Vector3.ZERO
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
@@ -22,9 +21,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	player_pos = player.position
-	nav_agent.set_target_position(player_pos)
-	
 	if hurt or dead:
 		return
 	
@@ -38,6 +34,8 @@ func _physics_process(delta: float) -> void:
 	
 	if stop_movement:
 		return
+	
+	nav_agent.set_target_position(player.position)
 	
 	if nav_agent.is_navigation_finished():
 		$AnimatedSprite3D.play("idle")

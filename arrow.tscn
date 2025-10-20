@@ -11,20 +11,20 @@ top_level = true
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.2, 0.015, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.36, 0.015, 0)
 shaded = true
 texture_filter = 2
 texture = ExtResource("1_l5ahi")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 0.2, 0, 0.015)
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 0.36, 0, 0.015)
 shaded = true
 texture_filter = 2
 render_priority = 1
 texture = ExtResource("1_l5ahi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37, 0, 0)
 shape = SubResource("BoxShape3D_l5ahi")
 debug_color = Color(1, 0, 0.0166664, 0.729412)
 

@@ -11,6 +11,7 @@ func _ready() -> void:
 	$OrcSpawnTimer.start()
 	Global.mouse_visible = false
 	$MouseTexture.hide_mouse()
+	Global.can_pause = true
 
 
 func _on_player_player_dead() -> void:

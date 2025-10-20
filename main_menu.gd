@@ -19,3 +19,11 @@ func _on_exit_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	SettingsNode = settings_screen.instantiate()
 	add_child(SettingsNode)
+	SettingsNode.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_ENABLED
+	
+	focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+
+
+func _on_child_exiting_tree(node: Node) -> void:
+	if node == SettingsNode:
+		focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED

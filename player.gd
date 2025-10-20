@@ -192,16 +192,6 @@ func update_common_vars(delta: float) -> void:
 	invincible = max(invincible - delta, 0)
 
 
-func update_circles(green_radius: float) -> void:
-	# Red Circle
-	$RedCircle.visible = Global.display_debug_circles
-	
-	# Green Circle
-	$GreenCircle.mesh.top_radius = green_radius
-	$GreenCircle.mesh.bottom_radius = green_radius
-	$GreenCircle.visible = Global.display_debug_circles
-
-
 func update_prev_positions() -> void:
 	prev_positions[int(GameTime.seconds * 100)] = position
 	if prev_positions.size() > 500:

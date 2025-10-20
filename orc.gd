@@ -8,7 +8,6 @@ var hurt := false
 var dead := false
 
 var player: CharacterBody3D
-var player_pos := Vector3.ZERO
 
 var attacking := false
 var player_hit_by_attack1 := false
@@ -36,12 +35,11 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	set_target_pos()
-	player_pos = player.position
 	
-	if position.distance_to(player_pos) <= 0.5:
+	if position.distance_to(player.position) <= 0.5:
 		$AnimatedSprite3D.play("attack1")
 		attacking = true
-		if player_pos.x >= position.x:
+		if player.position.x >= position.x:
 			scale.x = 1
 		else:
 			scale.x = -1
@@ -73,14 +71,14 @@ func set_target_pos() -> void:
 			int(GameTime.seconds * 100) - chase_delay
 	)
 	
-	var player_distance := (player_pos - position).length() # Orc -> Red box
+	var player_distance := (player.position - position).length() # Orc -> Red box
 	var current_to_delayed_player_distance := (
-			player_pos - delayed_player_pos
+			player.position - delayed_player_pos
 	).length() # Blue box -> Red box
 	
 	var target_pos: Vector3
 	if player_distance < 2:
-		target_pos = player_pos
+		target_pos = player.position
 	else:
 		if !(player_distance < current_to_delayed_player_distance):
 			target_pos = delayed_player_pos
@@ -89,24 +87,6 @@ func set_target_pos() -> void:
 			target_pos = player.find_closest_pos_to(
 					int(GameTime.seconds * 100) - temp_delay
 			)
-			
-	
-	# Red box
-	$PlayerPos.position = player_pos
-	$PlayerPos.visible = Global.display_debug_boxes
-	
-	# Blue box
-	$DelayedPlayerPos.position = delayed_player_pos
-	$DelayedPlayerPos.visible = Global.display_debug_boxes
-	
-	# Target box
-	$Target.position = target_pos
-	$Target.visible = Global.display_debug_boxes
-	
-	# Update player circles
-	if Global.display_debug_circles:
-		get_tree().call_group("Player", "update_circles",
-			current_to_delayed_player_distance)
 	
 	nav_agent.set_target_position(target_pos)
 

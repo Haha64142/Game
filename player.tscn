@@ -1,11 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://chd8hg2hn5spl"]
+[gd_scene load_steps=47 format=3 uid="uid://chd8hg2hn5spl"]
 
 [ext_resource type="Script" uid="uid://beia2lpkc7h56" path="res://player.gd" id="1_p6a14"]
 [ext_resource type="PackedScene" uid="uid://bcy7lccjcdbl" path="res://arrow.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cnjvbfeithmyc" path="res://Art/Player/Soldier.png" id="2_onrkg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hesjb"]
-size = Vector3(1.26532, 1.90442, 0.8)
+size = Vector3(1.193, 1.904, 1.193)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -340,28 +340,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kapy6"]
-render_priority = 2
-transparency = 1
-albedo_color = Color(1, 0, 0, 0.654902)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_onrkg"]
-material = SubResource("StandardMaterial3D_kapy6")
-top_radius = 2.0
-bottom_radius = 2.0
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vumo0"]
-render_priority = 2
-transparency = 1
-albedo_color = Color(0, 1, 0, 0.266667)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_i3pqv"]
-material = SubResource("StandardMaterial3D_vumo0")
-top_radius = 6.0
-bottom_radius = 6.0
-height = 0.1
-
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 disable_mode = 2
 script = ExtResource("1_p6a14")
@@ -369,7 +347,7 @@ health = 200
 arrow_scene = ExtResource("2_i3pqv")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." groups=["Hitboxes"]]
-transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.00127029, 0.0873618, -0.131)
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.009786844, 0.087, 0)
 shape = SubResource("BoxShape3D_hesjb")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -423,14 +401,6 @@ depth = 0.1
 disabled = true
 polygon = PackedVector2Array(0, 0.109, -0.601764, 0.106919, -0.509837, 0.203601, 0, 0.2)
 debug_color = Color(0, 1, 0, 0.690196)
-
-[node name="RedCircle" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CylinderMesh_onrkg")
-
-[node name="GreenCircle" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CylinderMesh_i3pqv")
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_frame_changed"]

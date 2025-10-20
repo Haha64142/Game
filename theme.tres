@@ -161,7 +161,6 @@ corner_radius_bottom_left = 25
 
 [resource]
 Button/constants/outline_size = 7
-Button/font_sizes/font_size = 62
 Button/styles/focus = SubResource("StyleBoxFlat_kwhh3")
 Button/styles/hover = SubResource("StyleBoxFlat_4sclt")
 Button/styles/normal = SubResource("StyleBoxFlat_ywh4s")
@@ -179,7 +178,6 @@ HScrollBar/styles/scroll = SubResource("StyleBoxFlat_vmnmn")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_6e703")
 PrimaryButton/base_type = &"Button"
 PrimaryButton/constants/outline_size = 7
-PrimaryButton/font_sizes/font_size = 62
 PrimaryButton/styles/focus = SubResource("StyleBoxFlat_kmy58")
 PrimaryButton/styles/hover = SubResource("StyleBoxFlat_3icv2")
 PrimaryButton/styles/normal = SubResource("StyleBoxFlat_nvfgn")
